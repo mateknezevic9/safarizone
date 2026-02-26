@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari Zone – Pokémon TCG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: #1a3a2a;
+      --green-mid: #2d6a4f;
+      --green-light: #52b788;
+      --green-pale: #b7e4c7;
+      --yellow: #ffd166;
+      --red: #ef476f;
+      --white: #f8fff9;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--green-dark);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(82,183,136,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(82,183,136,0.06) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2352b788' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* FLOATING DECO */
+    .deco {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.06;
+      font-size: 8rem;
+      user-select: none;
+    }
+    .deco-1 { top: 8%; left: -1%; animation: floatDeco 8s ease-in-out infinite; }
+    .deco-2 { top: 42%; right: 0%; animation: floatDeco 10s ease-in-out infinite reverse; font-size: 6rem; }
+    .deco-3 { bottom: 18%; left: 1%; animation: floatDeco 7s ease-in-out infinite 2s; font-size: 5rem; }
+    .deco-4 { bottom: 32%; right: 2%; animation: floatDeco 9s ease-in-out infinite 1s; font-size: 7rem; }
+    @keyframes floatDeco {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    /* POKEBALL SVG deco */
+    .pokeball-deco {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.04;
+      animation: spinSlow 20s linear infinite;
+    }
+    .pokeball-deco.pb1 { width: 300px; top: -80px; right: 8%; }
+    .pokeball-deco.pb2 { width: 180px; bottom: 8%; left: 4%; animation-duration: 30s; animation-direction: reverse; }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(135deg, #0d2818 0%, #1a3a2a 50%, #0d2818 100%);
+      border-bottom: 3px solid var(--green-light);
+      padding: 0 2rem;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0;
+    }
+    .logo { display: flex; align-items: center; gap: 1rem; }
+    .logo-icon {
+      width: 52px; height: 52px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 0 20px rgba(82,183,136,0.5);
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(82,183,136,0.5); }
+      50% { box-shadow: 0 0 35px rgba(82,183,136,0.8); }
+    }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--green-light);
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--green-pale);
+      font-weight: 600;
+      margin-top: 2px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* NAV DROPDOWNS */
+    nav { display: flex; gap: 0.5rem; align-items: center; }
+    .nav-item { position: relative; }
+    .nav-item > button {
+      color: var(--green-pale);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-item > button:hover { background: rgba(82,183,136,0.15); color: var(--white); }
+    .nav-item > button::after { content: '▾'; font-size: 0.75rem; color: var(--green-light); }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: #0d2818;
+      border: 1px solid rgba(82,183,136,0.3);
+      border-radius: 12px;
+      padding: 0.5rem;
+      min-width: 210px;
+      z-index: 100;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .nav-item:hover .dropdown { display: block; }
+    .dropdown-section {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--green-light);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.6rem 0.8rem 0.3rem;
+    }
+    .dropdown a {
+      display: block;
+      color: var(--green-pale);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .dropdown a:hover { background: rgba(82,183,136,0.15); color: var(--white); }
+    .dropdown hr { border: none; border-top: 1px solid rgba(82,183,136,0.15); margin: 0.3rem 0; }
+
+    .nav-contact {
+      background: var(--green-mid);
+      color: var(--white);
+      border: 1px solid var(--green-light);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-contact:hover { background: var(--green-light); color: var(--green-dark); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 4rem 2rem 3.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(82,183,136,0.15);
+      border: 1px solid var(--green-light);
+      color: var(--green-light);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+      line-height: 1.7;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span { color: var(--green-light); }
+    .hero p {
+      color: var(--green-pale);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* CSS POKEBALL */
+    .pokeball-hero {
+      display: inline-block;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(to bottom, #cc0000 50%, #ffffff 50%);
+      border: 4px solid #333;
+      position: relative;
+      margin: 0 auto 2rem;
+      box-shadow: 0 0 30px rgba(82,183,136,0.35);
+      animation: wobble 4s ease-in-out infinite;
+    }
+    .pokeball-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      height: 4px;
+      background: #333;
+      transform: translateY(-50%);
+    }
+    .pokeball-hero::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 15px; height: 15px;
+      background: white;
+      border: 4px solid #333;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes wobble {
+      0%, 30%, 100% { transform: rotate(0deg); }
+      35% { transform: rotate(12deg); }
+      40% { transform: rotate(-12deg); }
+      45% { transform: rotate(8deg); }
+      50% { transform: rotate(-4deg); }
+      55% { transform: rotate(0deg); }
+    }
+
+    /* FILTER */
+    .filter-bar {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--green-pale);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .filter-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(82,183,136,0.3);
+      color: var(--green-pale);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--green-mid);
+      border-color: var(--green-light);
+      color: var(--white);
+    }
+
+    /* ERA */
+    .grid-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+    .era-block { margin-bottom: 4rem; }
+    .era-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.8rem;
+      color: var(--green-light);
+      letter-spacing: 2px;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .era-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(82,183,136,0.2);
+    }
+    .era-badge {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.2rem 0.8rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+    .era-badge.sw-sh { background: rgba(100,160,230,0.2); color: #a8d8ff; border: 1px solid rgba(100,160,230,0.3); }
+    .era-badge.sc-vi { background: rgba(220,80,80,0.2); color: #ffb3b3; border: 1px solid rgba(220,80,80,0.3); }
+    .era-badge.mega  { background: rgba(180,100,220,0.2); color: #e0b3ff; border: 1px solid rgba(180,100,220,0.3); }
+
+    /* CARDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      animation: fadeUp 0.5s ease both;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+    .card-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.1));
+    }
+    .product-type-badge {
+      position: absolute;
+      top: 10px; right: 10px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .badge-booster { background: rgba(255,180,0,0.9); color: #1a1a00; }
+    .badge-etb { background: rgba(80,200,80,0.9); color: #001a00; }
+    .badge-bundle { background: rgba(80,140,255,0.9); color: #00001a; }
+    .badge-tin { background: rgba(210,90,210,0.9); color: #1a001a; }
+    .badge-display { background: rgba(255,70,70,0.9); color: #1a0000; }
+
+    .card-body { padding: 1rem 1.2rem 1.2rem; color: var(--green-dark); }
+    .card-set {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--green-mid);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .card-name { font-size: 1rem; font-weight: 800; color: #1a1a2e; margin-bottom: 0.2rem; }
+    .card-desc { font-size: 0.78rem; color: #666; margin-bottom: 1rem; line-height: 1.4; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .card-price { font-size: 1.3rem; font-weight: 800; color: var(--green-mid); }
+    .card-price span { font-size: 0.85rem; font-weight: 600; }
+    .order-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0.6rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .order-btn:hover { background: #128C7E; transform: scale(1.05); }
+    .card.sold-out .card-image { filter: grayscale(0.6); opacity: 0.7; }
+    .sold-badge {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      background: rgba(239,71,111,0.92);
+      color: white;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      z-index: 3;
+      letter-spacing: 1px;
+    }
+
+    /* WA FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 100;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px; height: 60px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      animation: floatWA 3s ease-in-out infinite;
+      transition: all 0.3s;
+    }
+    @keyframes floatWA {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .whatsapp-float:hover { transform: scale(1.1) !important; animation: none; }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      background: #0d2818;
+      border-top: 1px solid rgba(82,183,136,0.2);
+      padding: 2rem;
+      text-align: center;
+      color: var(--green-pale);
+      font-size: 0.85rem;
+    }
+    footer strong {
+      color: var(--green-light);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-item:not(:last-child) { display: none; }
+      .logo-title { font-size: 0.75rem; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .card-body { padding: 0.8rem; }
+      .card-name { font-size: 0.88rem; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating emoji deco -->
+<div class="deco deco-1">🌿</div>
+<div class="deco deco-2">⚡</div>
+<div class="deco deco-3">🔥</div>
+<div class="deco deco-4">🌊</div>
+
+<!-- Pokeball SVG deco -->
+<svg class="pokeball-deco pb1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="3"/>
+  <line x1="2" y1="50" x2="98" y2="50" stroke="white" stroke-width="3"/>
+  <path d="M2 50 A48 48 0 0 1 98 50" fill="white" opacity="0.2"/>
+  <circle cx="50" cy="50" r="13" fill="none" stroke="white" stroke-width="3"/>
+  <circle cx="50" cy="50" r="5" fill="white" opacity="0.6"/>
+</svg>
+<svg class="pokeball-deco pb2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="3"/>
+  <line x1="2" y1="50" x2="98" y2="50" stroke="white" stroke-width="3"/>
+  <path d="M2 50 A48 48 0 0 1 98 50" fill="white" opacity="0.2"/>
+  <circle cx="50" cy="50" r="13" fill="none" stroke="white" stroke-width="3"/>
+  <circle cx="50" cy="50" r="5" fill="white" opacity="0.6"/>
+</svg>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">
+        <div class="logo-title">Safari Zone</div>
+        <div class="logo-sub">Pokémon TCG</div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-item">
+        <button>Vrsta proizvoda</button>
+        <div class="dropdown">
+          <a href="#katalog">Sve</a>
+          <hr>
+          <a href="#katalog">🎴 Booster paketi</a>
+          <a href="#katalog">📦 Elite Trainer Box</a>
+          <a href="#katalog">🎁 Booster Bundle</a>
+          <a href="#katalog">🥫 Tin kutije</a>
+          <a href="#katalog">🗃️ Booster Display (36 pak.)</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Setovi</button>
+        <div class="dropdown">
+          <div class="dropdown-section">⚔️ Sword &amp; Shield</div>
+          <a href="#sw-sh">Base Set</a>
+          <a href="#sw-sh">Rebel Clash</a>
+          <a href="#sw-sh">Evolving Skies</a>
+          <a href="#sw-sh">Fusion Strike</a>
+          <a href="#sw-sh">Chilling Reign</a>
+          <hr>
+          <div class="dropdown-section">🔴 Scarlet &amp; Violet</div>
+          <a href="#sc-vi">Base Set</a>
+          <a href="#sc-vi">Obsidian Flames</a>
+          <a href="#sc-vi">Paradox Rift</a>
+          <a href="#sc-vi">Paldean Fates</a>
+          <hr>
+          <div class="dropdown-section">🔮 Mega Evolution Era</div>
+          <a href="#mega">XY Base</a>
+          <a href="#mega">BREAKthrough</a>
+          <a href="#mega">Evolutions</a>
+        </div>
+      </div>
+      <a href="https://wa.me/385XXXXXXXXX" class="nav-contact">📱 Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="pokeball-hero"></div>
+  <div class="hero-badge">🎴 Pokémon TCG • Hrvatska</div>
+  <h1>Sealed proizvodi<br><span>po dobroj cijeni</span></h1>
+  <p>Originalni, zapečaćeni Pokémon TCG proizvodi. Boosters, ETB, Bundle, Tin i Display kutije. Naruči putem WhatsAppa!</p>
+</section>
+
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" data-filter="all">Sve</button>
+  <button class="filter-btn" data-filter="booster">Booster</button>
+  <button class="filter-btn" data-filter="etb">ETB</button>
+  <button class="filter-btn" data-filter="bundle">Bundle</button>
+  <button class="filter-btn" data-filter="tin">Tin</button>
+  <button class="filter-btn" data-filter="display">Display</button>
+</div>
+
+<section class="grid-section" id="katalog">
+
+  <!-- SWORD & SHIELD -->
+  <div class="era-block" id="sw-sh">
+    <div class="era-title">⚔️ Sword &amp; Shield</div>
+    <div class="era-badge sw-sh">2020 – 2023</div>
+    <div class="cards-grid">
+
+      <div class="card" data-type="etb">
+        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">
+          📦
+          <div class="product-type-badge badge-etb">ETB</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
+          <div class="card-name">Elite Trainer Box</div>
+          <div class="card-desc">8 boostera + dodaci (dice, sleeves, dividers)</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>55,00</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20Evolving%20Skies%20ETB" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-type="booster">
+        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+          🎴
+          <div class="product-type-badge badge-booster">Booster</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">Sword &amp; Shield – Fusion Strike</div>
+          <div class="card-name">Booster paket</div>
+          <div class="card-desc">10 karata po paketu</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>5,00</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20Fusion%20Strike%20Booster" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-type="tin">
+        <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
+          🥫
+          <div class="product-type-badge badge-tin">Tin</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">Sword &amp; Shield – Chilling Reign</div>
+          <div class="card-name">Galarian Birds Tin</div>
+          <div class="card-desc">3 boostera + promo karta</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>22,00</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20Galarian%20Birds%20Tin" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card sold-out" data-type="display">
+        <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">
+          🗃️
+          <div class="product-type-badge badge-display">Display</div>
+          <div class="sold-badge">PRODANO</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">Sword &amp; Shield – Rebel Clash</div>
+          <div class="card-name">Booster Display Box</div>
+          <div class="card-desc">36 boostera u kutiji</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>140,00</div>
+            <button class="order-btn" style="background:#ccc; cursor:not-allowed;">Prodano</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SCARLET & VIOLET -->
+  <div class="era-block" id="sc-vi">
+    <div class="era-title">🔴 Scarlet &amp; Violet</div>
+    <div class="era-badge sc-vi">2023 – danas</div>
+    <div class="cards-grid">
+
+      <div class="card" data-type="etb">
+        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">
+          📦
+          <div class="product-type-badge badge-etb">ETB</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div>
+          <div class="card-name">Elite Trainer Box</div>
+          <div class="card-desc">9 boostera + dodaci</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>58,00</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20Obsidian%20Flames%20ETB" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-type="bundle">
+        <div class="card-image" style="background: linear-gradient(135deg, #fff9e6, #fff3cd);">
+          🎁
+          <div class="product-type-badge badge-bundle">Bundle</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
+          <div class="card-name">Booster Bundle</div>
+          <div class="card-desc">6 boostera u paketu</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>28,00</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20Paradox%20Rift%20Bundle" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-type="booster">
+        <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">
+          🎴
+          <div class="product-type-badge badge-booster">Booster</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">Scarlet &amp; Violet – Base Set</div>
+          <div class="card-name">Booster paket</div>
+          <div class="card-desc">10 karata po paketu</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>5,50</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20SV%20Base%20Booster" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MEGA EVOLUTION -->
+  <div class="era-block" id="mega">
+    <div class="era-title">🔮 Mega Evolution Era</div>
+    <div class="era-badge mega">XY Series • 2013 – 2016</div>
+    <div class="cards-grid">
+
+      <div class="card" data-type="tin">
+        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">
+          🥫
+          <div class="product-type-badge badge-tin">Tin</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">XY – BREAKthrough</div>
+          <div class="card-name">Mega Venusaur Tin</div>
+          <div class="card-desc">3 boostera + promo Mega karta</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>45,00</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20Mega%20Venusaur%20Tin" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-type="booster">
+        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">
+          🎴
+          <div class="product-type-badge badge-booster">Booster</div>
+        </div>
+        <div class="card-body">
+          <div class="card-set">XY – Evolutions</div>
+          <div class="card-name">Booster paket</div>
+          <div class="card-desc">10 karata • Vintage set!</div>
+          <div class="card-footer">
+            <div class="card-price"><span>€</span>18,00</div>
+            <a href="https://wa.me/385XXXXXXXXX?text=Zanima%20me%20XY%20Evolutions%20Booster" class="order-btn" target="_blank">📱 Naruči</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<a href="https://wa.me/385XXXXXXXXX" class="whatsapp-float" target="_blank">💬</a>
+
+<footer>
+  <strong>Safari Zone</strong><br><br>
+  Pokémon TCG • Hrvatska<br>
+  Sve upite šalji na WhatsApp · safarizone.eu
+</footer>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.dataset.filter;
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+      });
+      document.querySelectorAll('.era-block').forEach(block => {
+        const visible = [...block.querySelectorAll('.card')].some(c => c.style.display !== 'none');
+        block.style.display = visible ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
