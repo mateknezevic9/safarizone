@@ -57,8 +57,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 0;
+    width: 100%;
   }
-  .header-left { display: flex; align-items: center; gap: 0; }
+  .header-left { display: flex; align-items: center; gap: 2rem; }
   .logo { display: flex; align-items: center; gap: 1rem; }
 
   /* FIX 2: Logo - čista Pokéball kugla */
@@ -84,7 +85,7 @@
   .logo-title { font-family: 'Press Start 2P', monospace; font-size: 1rem; color: var(--green-light); line-height: 1.2; letter-spacing: 1px; }
   .logo-sub { font-size: 0.75rem; color: var(--green-pale); font-weight: 600; margin-top: 2px; letter-spacing: 2px; text-transform: uppercase; }
 
-  nav { display: flex; gap: 0.5rem; align-items: center; margin-left: 2rem; }
+  nav { display: flex; gap: 0.5rem; align-items: center; }
 
   /* FIX 1: Dropdown meni - bridge gap da ne nestaje */
   .nav-item { position: relative; }
@@ -194,6 +195,7 @@
   footer strong { color: var(--green-light); font-family: 'Press Start 2P', monospace; font-size: 0.7rem; }
 
   .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; color: var(--green-pale); font-size: 1.6rem; line-height: 1; }
+  .mobile-menu { display: none; }
 
   @media (max-width: 768px) {
     .nav-item { display: none; }
@@ -309,15 +311,24 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  
+  <div style="color: var(--green-light); font-size: 0.7rem; letter-spacing: 2px; font-family: 'Press Start 2P', monospace; margin-bottom: 0.3rem;">PROIZVODI</div>
   <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Booster Box</a>
   <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Elite Trainer Box</a>
-  <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pokemon Center ETB</a>
+  <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pokémon Center ETB</a>
   <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Booster Bundle</a>
   <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Premium Collection</a>
+
+  <div style="width:80%; height:1px; background: rgba(82,183,136,0.2); margin: 0.5rem 0;"></div>
+
+  <div style="color: var(--green-light); font-size: 0.7rem; letter-spacing: 2px; font-family: 'Press Start 2P', monospace; margin-bottom: 0.3rem;">SETOVI</div>
   <a href="#sw-sh" onclick="document.getElementById('mobileMenu').classList.remove('open')">Sword &amp; Shield</a>
   <a href="#sc-vi" onclick="document.getElementById('mobileMenu').classList.remove('open')">Scarlet &amp; Violet</a>
   <a href="#mega" onclick="document.getElementById('mobileMenu').classList.remove('open')">Mega Evolution</a>
-  <a href="https://m.me/safarizone.eu" target="_blank">Kontakt</a>
+
+  <div style="width:80%; height:1px; background: rgba(82,183,136,0.2); margin: 0.5rem 0;"></div>
+
+  <a href="https://m.me/safarizone.eu" target="_blank" style="background: var(--green-mid); border-color: var(--green-light);">Kontakt</a>
 </div>
 
 <section class="hero">
