@@ -193,12 +193,47 @@
   footer { position: relative; z-index: 1; background: #0d2818; border-top: 1px solid rgba(82,183,136,0.2); padding: 2rem; text-align: center; color: var(--green-pale); font-size: 0.85rem; }
   footer strong { color: var(--green-light); font-family: 'Press Start 2P', monospace; font-size: 0.7rem; }
 
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; color: var(--green-pale); font-size: 1.6rem; line-height: 1; }
+
   @media (max-width: 768px) {
-    .nav-item:not(:last-child) { display: none; }
+    .nav-item { display: none; }
+    .hamburger { display: block; }
     .logo-title { font-size: 0.75rem; }
     .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .card-body { padding: 0.8rem; }
     .card-name { font-size: 0.88rem; }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10, 25, 15, 0.97);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--green-pale);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.7rem 2rem;
+      border-radius: 10px;
+      width: 80%;
+      text-align: center;
+      border: 1px solid rgba(82,183,136,0.2);
+    }
+    .mobile-menu a:hover { background: rgba(82,183,136,0.15); color: var(--white); }
+    .mobile-menu .close-btn {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none; border: none;
+      color: var(--green-pale); font-size: 2rem;
+      cursor: pointer;
+    }
   }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -267,8 +302,23 @@
       </svg>
       Kontakt
     </a>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">☰</button>
   </div>
 </header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Booster Box</a>
+  <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Elite Trainer Box</a>
+  <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pokemon Center ETB</a>
+  <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Booster Bundle</a>
+  <a href="#katalog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Premium Collection</a>
+  <a href="#sw-sh" onclick="document.getElementById('mobileMenu').classList.remove('open')">Sword &amp; Shield</a>
+  <a href="#sc-vi" onclick="document.getElementById('mobileMenu').classList.remove('open')">Scarlet &amp; Violet</a>
+  <a href="#mega" onclick="document.getElementById('mobileMenu').classList.remove('open')">Mega Evolution</a>
+  <a href="https://m.me/safarizone.eu" target="_blank">Kontakt</a>
+</div>
 
 <section class="hero">
   <div class="hero-badge">POKÉMON TCG</div>
