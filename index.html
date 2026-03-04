@@ -40,20 +40,8 @@
     z-index: 0;
   }
 
-  .deco { position: fixed; pointer-events: none; z-index: 0; opacity: 0.06; font-size: 8rem; user-select: none; }
-  .deco-1 { top: 8%; left: -1%; animation: floatDeco 8s ease-in-out infinite; }
-  .deco-2 { top: 42%; right: 0%; animation: floatDeco 10s ease-in-out infinite reverse; font-size: 6rem; }
-  .deco-3 { bottom: 18%; left: 1%; animation: floatDeco 7s ease-in-out infinite 2s; font-size: 5rem; }
-  .deco-4 { bottom: 32%; right: 2%; animation: floatDeco 9s ease-in-out infinite 1s; font-size: 7rem; }
-  @keyframes floatDeco {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-  }
-
-  .pokeball-deco { position: fixed; pointer-events: none; z-index: 0; opacity: 0.04; animation: spinSlow 20s linear infinite; }
-  .pokeball-deco.pb1 { width: 300px; top: -80px; right: 8%; }
-  .pokeball-deco.pb2 { width: 180px; bottom: 8%; left: 4%; animation-duration: 30s; animation-direction: reverse; }
-  @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .pokeball-deco { display: none; }
+  .deco { display: none; }
 
   header {
     position: relative;
@@ -96,7 +84,7 @@
   .logo-title { font-family: 'Press Start 2P', monospace; font-size: 1rem; color: var(--green-light); line-height: 1.2; letter-spacing: 1px; }
   .logo-sub { font-size: 0.75rem; color: var(--green-pale); font-weight: 600; margin-top: 2px; letter-spacing: 2px; text-transform: uppercase; }
 
-  nav { display: flex; gap: 0.5rem; align-items: center; }
+  nav { display: flex; gap: 0.5rem; align-items: center; margin-left: 2rem; }
 
   /* FIX 1: Dropdown meni - bridge gap da ne nestaje */
   .nav-item { position: relative; }
@@ -196,7 +184,8 @@
   .card.sold-out .card-image { filter: grayscale(0.6); opacity: 0.7; }
   .sold-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); background: rgba(239,71,111,0.92); color: white; font-family: 'Press Start 2P', monospace; font-size: 0.6rem; padding: 0.5rem 1rem; border-radius: 6px; z-index: 3; letter-spacing: 1px; }
 
-  .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 100; background: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); animation: floatWA 3s ease-in-out infinite; transition: all 0.3s; }
+  .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; animation: floatWA 3s ease-in-out infinite; transition: all 0.3s; }
+  .whatsapp-float svg { width: 60px; height: 60px; fill: #1877F2; filter: drop-shadow(0 4px 8px rgba(24,119,242,0.4)); }
   @keyframes floatWA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   .whatsapp-float:hover { transform: scale(1.1) !important; animation: none; }
 
@@ -222,21 +211,6 @@
 <div class="deco deco-2">⚡</div>
 <div class="deco deco-3">🔥</div>
 <div class="deco deco-4">🌊</div>
-
-<svg class="pokeball-deco pb1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="3"/>
-  <line x1="2" y1="50" x2="98" y2="50" stroke="white" stroke-width="3"/>
-  <path d="M2 50 A48 48 0 0 1 98 50" fill="white" opacity="0.2"/>
-  <circle cx="50" cy="50" r="13" fill="none" stroke="white" stroke-width="3"/>
-  <circle cx="50" cy="50" r="5" fill="white" opacity="0.6"/>
-</svg>
-<svg class="pokeball-deco pb2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="3"/>
-  <line x1="2" y1="50" x2="98" y2="50" stroke="white" stroke-width="3"/>
-  <path d="M2 50 A48 48 0 0 1 98 50" fill="white" opacity="0.2"/>
-  <circle cx="50" cy="50" r="13" fill="none" stroke="white" stroke-width="3"/>
-  <circle cx="50" cy="50" r="5" fill="white" opacity="0.6"/>
-</svg>
 
 <header>
   <div class="header-inner">
@@ -305,7 +279,7 @@
 
 <section class="grid-section" id="katalog">
   <div class="era-block" id="sw-sh">
-    <div class="era-title">⚔️ Sword &amp; Shield</div>
+    <div class="era-title">Sword &amp; Shield</div>
     <div class="era-badge sw-sh">2020 – 2023</div>
     <div class="cards-grid">
       <div class="card">
@@ -354,8 +328,8 @@
   </div>
 
   <div class="era-block" id="sc-vi">
-    <div class="era-title">🔴 Scarlet &amp; Violet</div>
-    <div class="era-badge sc-vi">2023 – danas</div>
+    <div class="era-title">Scarlet &amp; Violet</div>
+    <div class="era-badge sc-vi">2023 – 2025</div>
     <div class="cards-grid">
       <div class="card">
         <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">
@@ -417,8 +391,8 @@
   </div>
 
   <div class="era-block" id="mega">
-    <div class="era-title">🔮 Mega Evolution</div>
-    <div class="era-badge mega">XY Series • 2013 – 2016</div>
+    <div class="era-title">Mega Evolution</div>
+    <div class="era-badge mega">2025 – danas</div>
     <div class="cards-grid">
       <div class="card">
         <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">
@@ -452,12 +426,16 @@
   </div>
 </section>
 
-<a href="https://wa.me/385XXXXXXXXX" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://m.me/safarizone.eu" class="whatsapp-float" target="_blank">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+  </svg>
+</a>
 
 <footer>
   <strong>Safari Zone</strong><br><br>
   Pokémon TCG • Hrvatska<br>
-  Sve upite šalji na WhatsApp · safarizone.eu
+  Sve upite šalji putem Facebooka · safarizone.eu
 </footer>
 
 </body>
