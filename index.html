@@ -164,15 +164,12 @@
       margin: 2rem auto;
       padding: 0 2rem;
     }
-    .highlights-placeholder {
-      border: 2px dashed rgba(82,183,136,0.3);
-      border-radius: 16px;
-      padding: 3rem;
-      text-align: center;
-      color: rgba(183,228,199,0.35);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .highlights-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      color: var(--green-light);
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
     }
     .grid-section {
       position: relative;
@@ -236,23 +233,7 @@
       position: relative;
       overflow: hidden;
     }
-    .product-type-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      z-index: 2;
-    }
-    .badge-booster { background: rgba(255,180,0,0.9); color: #1a1a00; }
-    .badge-etb { background: rgba(80,200,80,0.9); color: #001a00; }
-    .badge-bundle { background: rgba(80,140,255,0.9); color: #00001a; }
-    .badge-premium { background: rgba(255,210,0,0.9); color: #1a1a00; }
-    .badge-ostalo { background: rgba(150,150,150,0.9); color: #fff; }
+    .product-type-badge { display: none; }
     .card-body { padding: 1rem 1.2rem 1.2rem; color: var(--green-dark); }
     .card-set { font-size: 0.7rem; font-weight: 700; color: var(--green-mid); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.3rem; }
     .card-name { font-size: 1rem; font-weight: 800; color: #1a1a2e; margin-bottom: 0.2rem; }
@@ -336,7 +317,18 @@
   </section>
 
   <div class="highlights">
-    <div class="highlights-placeholder">✨ Istaknuti proizvodi — dolaze uskoro</div>
+    <div class="highlights-title">✨ Istaknuti proizvodi</div>
+    <div class="cards-grid" style="max-width: 320px;">
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴</div>
+        <div class="card-body">
+          <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
+          <div class="card-name">Booster Box</div>
+          <div class="card-desc">36 boostera u kutiji</div>
+          <div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <section class="grid-section" id="katalog">
