@@ -163,7 +163,7 @@
   .era-badge.sc-vi { background: rgba(220,80,80,0.2); color: #ffb3b3; border: 1px solid rgba(220,80,80,0.3); }
   .era-badge.mega { background: rgba(180,100,220,0.2); color: #e0b3ff; border: 1px solid rgba(180,100,220,0.3); }
 
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
+  .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; row-gap: 2rem; }
   .card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; animation: fadeUp 0.5s ease both; }
   .card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
   .card-image { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; position: relative; overflow: hidden; background: #fff; }
@@ -255,7 +255,7 @@
 <header>
   <div class="header-inner">
     <div class="header-left">
-      <div class="logo">
+      <a href="index.html" style="text-decoration:none;"><div class="logo">
         <!-- FIX 2: Pokéball logo - čista kugla -->
         <div class="logo-icon">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -271,7 +271,7 @@
           <div class="logo-title">Safari Zone</div>
           <div class="logo-sub">Pokémon TCG</div>
         </div>
-      </div>
+      </div></a>
     </div>
     <nav>
         <div class="nav-item">
@@ -292,9 +292,9 @@
           <button>Setovi</button>
           <div class="dropdown">
             <div class="dropdown-inner">
-              <a href="#sw-sh">Sword &amp; Shield</a>
-              <a href="#sc-vi">Scarlet &amp; Violet</a>
-              <a href="#mega">Mega Evolution</a>
+              <a href="sw-sh.html">Sword &amp; Shield</a>
+              <a href="sc-vi.html">Scarlet &amp; Violet</a>
+              <a href="mega.html">Mega Evolution</a>
             </div>
           </div>
         </div>
