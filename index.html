@@ -6,152 +6,38 @@
 <title>Safari Zone – Pokémon TCG</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green-dark: #1a3a2a;
-    --green-mid: #2d6a4f;
-    --green-light: #52b788;
-    --green-pale: #b7e4c7;
-    --yellow: #ffd166;
-    --white: #f8fff9;
-    --card-bg: #ffffff;
-    --shadow: 0 4px 24px rgba(0,0,0,0.12);
-  }
+  :root { --green-dark: #1a3a2a; --green-mid: #2d6a4f; --green-light: #52b788; --green-pale: #b7e4c7; --yellow: #ffd166; --white: #f8fff9; --card-bg: #ffffff; --shadow: 0 4px 24px rgba(0,0,0,0.12); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  /* FIX 4: Fiksna pozadina - Safari Zone mapa */
-  body {
-    font-family: 'Nunito', sans-serif;
-    background-color: var(--green-dark);
-    background-image: url('safari-bg.webp');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 25, 15, 0.78);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .pokeball-deco { display: none; }
+  body { font-family: 'Nunito', sans-serif; background-color: var(--green-dark); background-image: url('safari-bg.webp'); background-attachment: fixed; background-size: cover; background-position: center center; color: var(--white); min-height: 100vh; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: rgba(10, 25, 15, 0.78); pointer-events: none; z-index: 0; }
   .deco { display: none; }
-
-  header {
-    position: relative;
-    z-index: 10;
-    background: linear-gradient(135deg, #0d2818 0%, #1a3a2a 50%, #0d2818 100%);
-    border-bottom: 3px solid var(--green-light);
-    padding: 0 2rem;
-  }
-  .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 0;
-  }
+  header { position: relative; z-index: 10; background: linear-gradient(135deg, #0d2818 0%, #1a3a2a 50%, #0d2818 100%); border-bottom: 3px solid var(--green-light); padding: 0 2rem; }
+  .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; }
   .header-left { display: flex; align-items: center; gap: 0; }
   .logo { display: flex; align-items: center; gap: 1rem; }
-
-  /* FIX 2: Logo - čista Pokéball kugla */
-  .logo-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(82,183,136,0.5);
-    animation: pulse 3s ease-in-out infinite;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
+  .logo-icon { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(82,183,136,0.5); animation: pulse 3s ease-in-out infinite; overflow: hidden; flex-shrink: 0; }
   .logo-icon svg { width: 52px; height: 52px; }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(82,183,136,0.5); }
-    50% { box-shadow: 0 0 35px rgba(82,183,136,0.8); }
-  }
-
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 20px rgba(82,183,136,0.5); } 50% { box-shadow: 0 0 35px rgba(82,183,136,0.8); } }
   .logo-text { display: flex; flex-direction: column; }
   .logo-title { font-family: 'Press Start 2P', monospace; font-size: 1rem; color: var(--green-light); line-height: 1.2; letter-spacing: 1px; }
   .logo-sub { font-size: 0.75rem; color: var(--green-pale); font-weight: 600; margin-top: 2px; letter-spacing: 2px; text-transform: uppercase; }
-
   nav { display: flex; gap: 0.5rem; align-items: center; margin-left: 2rem; }
-
-  /* FIX 1: Dropdown meni - bridge gap da ne nestaje */
   .nav-item { position: relative; }
-  .nav-item > button {
-    color: var(--green-pale);
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.2s;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
+  .nav-item > button { color: var(--green-pale); font-weight: 700; font-size: 0.9rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.2s; background: none; border: none; cursor: pointer; font-family: 'Nunito', sans-serif; display: flex; align-items: center; gap: 0.4rem; }
   .nav-item > button:hover { background: rgba(82,183,136,0.15); color: var(--white); }
   .nav-item > button::after { content: '▾'; font-size: 0.75rem; color: var(--green-light); }
-
-  .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding-top: 10px; /* invisible bridge - spriječava nestajanje */
-    min-width: 220px;
-    z-index: 100;
-  }
-  .dropdown-inner {
-    background: #0d2818;
-    border: 1px solid rgba(82,183,136,0.3);
-    border-radius: 12px;
-    padding: 0.5rem;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  }
+  .dropdown { display: none; position: absolute; top: 100%; left: 0; padding-top: 10px; min-width: 220px; z-index: 100; }
+  .dropdown-inner { background: #0d2818; border: 1px solid rgba(82,183,136,0.3); border-radius: 12px; padding: 0.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
   .nav-item:hover .dropdown { display: block; }
-
   .dropdown a { display: block; color: var(--green-pale); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 0.8rem; border-radius: 8px; transition: all 0.2s; }
   .dropdown a:hover { background: rgba(82,183,136,0.15); color: var(--white); }
-  .dropdown hr { border: none; border-top: 1px solid rgba(82,183,136,0.15); margin: 0.3rem 0; }
-
-  /* FIX 3: Kontakt - Facebook ikona */
-  .nav-contact {
-    background: var(--green-mid);
-    color: var(--white);
-    border: 1px solid var(--green-light);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+  .nav-contact { background: var(--green-mid); color: var(--white); border: 1px solid var(--green-light); text-decoration: none; font-weight: 700; font-size: 0.9rem; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem; }
   .nav-contact:hover { background: var(--green-light); color: var(--green-dark); }
   .nav-contact svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
-
   .hero { position: relative; z-index: 1; text-align: center; padding: 3rem 2rem 2rem; max-width: 800px; margin: 0 auto; }
   .hero-badge { display: inline-block; background: rgba(82,183,136,0.15); border: 1px solid var(--green-light); color: var(--green-light); font-family: 'Press Start 2P', monospace; font-size: 1.3rem; letter-spacing: 4px; text-transform: uppercase; padding: 0.6rem 1.8rem; border-radius: 100px; }
-
   .highlights { position: relative; z-index: 1; max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
   .highlights-placeholder { border: 2px dashed rgba(82,183,136,0.3); border-radius: 16px; padding: 3rem; text-align: center; color: rgba(183,228,199,0.35); font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; }
-
   .grid-section { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
   .era-block { margin-bottom: 4rem; }
   .era-title { font-family: 'Press Start 2P', monospace; font-size: 0.8rem; color: var(--green-light); letter-spacing: 2px; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 1rem; }
@@ -160,12 +46,10 @@
   .era-badge.sw-sh { background: rgba(100,160,230,0.2); color: #a8d8ff; border: 1px solid rgba(100,160,230,0.3); }
   .era-badge.sc-vi { background: rgba(220,80,80,0.2); color: #ffb3b3; border: 1px solid rgba(220,80,80,0.3); }
   .era-badge.mega { background: rgba(180,100,220,0.2); color: #e0b3ff; border: 1px solid rgba(180,100,220,0.3); }
-
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
   .card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; animation: fadeUp 0.5s ease both; }
   .card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
   .card-image { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; position: relative; overflow: hidden; }
-  .card-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.1)); }
   .product-type-badge { position: absolute; top: 10px; right: 10px; font-size: 0.65rem; font-weight: 800; padding: 0.3rem 0.6rem; border-radius: 6px; letter-spacing: 1px; text-transform: uppercase; z-index: 2; }
   .badge-booster { background: rgba(255,180,0,0.9); color: #1a1a00; }
   .badge-etb { background: rgba(80,200,80,0.9); color: #001a00; }
@@ -182,750 +66,64 @@
   .order-btn { background: #1877F2; color: white; border: none; border-radius: 10px; padding: 0.6rem 1rem; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s; text-decoration: none; }
   .order-btn svg { width: 16px; height: 16px; fill: white; flex-shrink: 0; }
   .order-btn:hover { background: #0d5fdb; transform: scale(1.05); }
-  .card.sold-out .card-image { filter: grayscale(0.6); opacity: 0.7; }
-  .sold-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); background: rgba(239,71,111,0.92); color: white; font-family: 'Press Start 2P', monospace; font-size: 0.6rem; padding: 0.5rem 1rem; border-radius: 6px; z-index: 3; letter-spacing: 1px; }
-
   .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; animation: floatWA 3s ease-in-out infinite; transition: all 0.3s; }
   .whatsapp-float svg { width: 60px; height: 60px; fill: #1877F2; filter: drop-shadow(0 4px 8px rgba(24,119,242,0.4)); }
   @keyframes floatWA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   .whatsapp-float:hover { transform: scale(1.1) !important; animation: none; }
-
   footer { position: relative; z-index: 1; background: #0d2818; border-top: 1px solid rgba(82,183,136,0.2); padding: 2rem; text-align: center; color: var(--green-pale); font-size: 0.85rem; }
   footer strong { color: var(--green-light); font-family: 'Press Start 2P', monospace; font-size: 0.7rem; }
-
-  @media (max-width: 768px) {
-    .nav-item:not(:last-child) { display: none; }
-    .logo-title { font-size: 0.75rem; }
-    .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .card-body { padding: 0.8rem; }
-    .card-name { font-size: 0.88rem; }
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @media (max-width: 768px) { .nav-item:not(:last-child) { display: none; } .logo-title { font-size: 0.75rem; } .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } .card-body { padding: 0.8rem; } .card-name { font-size: 0.88rem; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
-
-<div class="deco deco-1">🌿</div>
-<div class="deco deco-2">⚡</div>
-<div class="deco deco-3">🔥</div>
-<div class="deco deco-4">🌊</div>
-
 <header>
   <div class="header-inner">
     <div class="header-left">
       <div class="logo">
-        <!-- FIX 2: Pokéball logo - čista kugla -->
-        <div class="logo-icon">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 4 A46 46 0 0 1 96 50 L4 50 A46 46 0 0 1 50 4 Z" fill="#CC0000"/>
-            <path d="M50 96 A46 46 0 0 1 4 50 L96 50 A46 46 0 0 1 50 96 Z" fill="#F5F5F5"/>
-            <circle cx="50" cy="50" r="46" fill="none" stroke="#1a1a1a" stroke-width="6"/>
-            <line x1="4" y1="50" x2="96" y2="50" stroke="#1a1a1a" stroke-width="6"/>
-            <circle cx="50" cy="50" r="14" fill="white" stroke="#1a1a1a" stroke-width="6"/>
-            <circle cx="50" cy="50" r="6" fill="#DDDDDD"/>
-          </svg>
-        </div>
-        <div class="logo-text">
-          <div class="logo-title">Safari Zone</div>
-          <div class="logo-sub">Pokémon TCG</div>
-        </div>
+        <div class="logo-icon"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 4 A46 46 0 0 1 96 50 L4 50 A46 46 0 0 1 50 4 Z" fill="#CC0000"/><path d="M50 96 A46 46 0 0 1 4 50 L96 50 A46 46 0 0 1 50 96 Z" fill="#F5F5F5"/><circle cx="50" cy="50" r="46" fill="none" stroke="#1a1a1a" stroke-width="6"/><line x1="4" y1="50" x2="96" y2="50" stroke="#1a1a1a" stroke-width="6"/><circle cx="50" cy="50" r="14" fill="white" stroke="#1a1a1a" stroke-width="6"/><circle cx="50" cy="50" r="6" fill="#DDDDDD"/></svg></div>
+        <div class="logo-text"><div class="logo-title">Safari Zone</div><div class="logo-sub">Pokémon TCG</div></div>
       </div>
       <nav>
-        <div class="nav-item">
-          <button>Proizvodi</button>
-          <!-- FIX 1: padding-top bridge sprječava nestajanje dropdowna -->
-          <div class="dropdown">
-            <div class="dropdown-inner">
-              <a href="#katalog">Booster Box</a>
-              <a href="#katalog">Elite Trainer Box</a>
-              <a href="#katalog">Pokemon Center Elite Trainer Box</a>
-              <a href="#katalog">Booster Bundle</a>
-              <a href="#katalog">Premium Collection</a>
-              <a href="#katalog">Ostalo</a>
-            </div>
-          </div>
-        </div>
-        <div class="nav-item">
-          <button>Setovi</button>
-          <div class="dropdown">
-            <div class="dropdown-inner">
-              <a href="#sw-sh">Sword &amp; Shield</a>
-              <a href="#sc-vi">Scarlet &amp; Violet</a>
-              <a href="#mega">Mega Evolution</a>
-            </div>
-          </div>
-        </div>
+        <div class="nav-item"><button>Proizvodi</button><div class="dropdown"><div class="dropdown-inner"><a href="#katalog">Booster Box</a><a href="#katalog">Elite Trainer Box</a><a href="#katalog">Pokemon Center Elite Trainer Box</a><a href="#katalog">Booster Bundle</a><a href="#katalog">Premium Collection</a><a href="#katalog">Ostalo</a></div></div></div>
+        <div class="nav-item"><button>Setovi</button><div class="dropdown"><div class="dropdown-inner"><a href="#sw-sh">Sword &amp; Shield</a><a href="#sc-vi">Scarlet &amp; Violet</a><a href="#mega">Mega Evolution</a></div></div></div>
       </nav>
     </div>
-    <!-- FIX 3: Facebook ikona za Messenger kontakt -->
-    <a href="https://m.me/safarizone.eu" class="nav-contact" target="_blank">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
-      </svg>
-      Kontakt
-    </a>
+    <a href="https://m.me/safarizone.eu" class="nav-contact" target="_blank"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Kontakt</a>
   </div>
 </header>
-
-<section class="hero">
-  <div class="hero-badge">POKÉMON TCG</div>
-</section>
-
-<div class="highlights">
-  <div class="highlights-placeholder">✨ Istaknuti proizvodi — dolaze uskoro</div>
-</div>
-
+<section class="hero"><div class="hero-badge">POKÉMON TCG</div></section>
+<div class="highlights"><div class="highlights-placeholder">✨ Istaknuti proizvodi — dolaze uskoro</div></div>
 <section class="grid-section" id="katalog">
-  <!-- SWORD & SHIELD -->
   <div class="era-block" id="sw-sh">
     <div class="era-title">Sword &amp; Shield</div>
     <div class="era-badge sw-sh">2020 – 2023</div>
     <div class="cards-grid">
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Battle Styles</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>270</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Chilling Reign</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>420</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #b3e5fc);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>2000</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fff9e6, #ffe082);">⭐<div class="product-type-badge badge-premium">Ultra Premium</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Celebrations</div>
-          <div class="card-name">Ultra-Premium Collection</div>
-          <div class="card-desc">Ekskluzivna 25th anniversary kolekcija</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>800</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Fusion Strike</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>750</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>470</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦<div class="product-type-badge badge-etb">PC ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
-          <div class="card-name">Pokémon Center Elite Trainer Box</div>
-          <div class="card-desc">9 boostera + ekskluzivni dodaci</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>200</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Lost Origin</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>580</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fafafa, #bdbdbd);">📦<div class="product-type-badge badge-etb">ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Lost Origin</div>
-          <div class="card-name">Elite Trainer Box</div>
-          <div class="card-desc">10 kom u caseu • 8 boostera + dodaci svaki</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>140</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/1-113.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Charizard</div>
-          <div class="card-name">Ultra-Premium Collection</div>
-          <div class="card-desc">Ekskluzivni Charizard set s figuricom</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>370</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Silver Tempest</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>370</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">📦<div class="product-type-badge badge-etb">ETB</div></div><div class="card-body"><div class="card-set">Sword &amp; Shield – Evolving Skies</div><div class="card-name">Elite Trainer Box</div><div class="card-desc">8 boostera + dodaci</div><div class="card-footer"><div class="card-price"><span>€</span>55,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div><div class="card-body"><div class="card-set">Sword &amp; Shield – Fusion Strike</div><div class="card-name">Booster Box</div><div class="card-desc">36 boostera u kutiji</div><div class="card-footer"><div class="card-price"><span>€</span>95,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div><div class="card-body"><div class="card-set">Sword &amp; Shield – Chilling Reign</div><div class="card-name">Booster Bundle</div><div class="card-desc">6 boostera u paketu</div><div class="card-footer"><div class="card-price"><span>€</span>22,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
     </div>
   </div>
-
-  <!-- SCARLET & VIOLET -->
   <div class="era-block" id="sc-vi">
     <div class="era-title">Scarlet &amp; Violet</div>
     <div class="era-badge sc-vi">2023 – 2025</div>
     <div class="cards-grid">
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Base Set</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>180</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/New-Project-64.png" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Paldea Evolved</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>300</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/613rMMod5eL__AC_SX679_.jpg" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>270</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁<div class="product-type-badge badge-bundle">Bundle Display</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – 151</div>
-          <div class="card-name">Booster Bundle Display</div>
-          <div class="card-desc">Display kutija s bundle paketima</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>1300</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/1-130.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – 151</div>
-          <div class="card-name">Ultra-Premium Collection</div>
-          <div class="card-desc">Ekskluzivni set s Mew figuricom</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>530</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>200</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">📦<div class="product-type-badge badge-etb">ETB Case</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
-          <div class="card-name">Elite Trainer Box Case (10 kom)</div>
-          <div class="card-desc">10 ETB kutija u jednom caseu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>750</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/22390.jpg" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>200</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦<div class="product-type-badge badge-etb">PC ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-          <div class="card-name">PC Elite Trainer Box (Iron Leaves)</div>
-          <div class="card-desc">Ekskluzivni Pokémon Center ETB</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>190</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #b3e5fc);">📦<div class="product-type-badge badge-etb">PC ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-          <div class="card-name">PC Elite Trainer Box (Walking Wake)</div>
-          <div class="card-desc">Ekskluzivni Pokémon Center ETB</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>150</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦<div class="product-type-badge badge-etb">PC ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Twilight Masquerade</div>
-          <div class="card-name">Pokémon Center Elite Trainer Box</div>
-          <div class="card-desc">Ekskluzivni Pokémon Center ETB</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>190</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fff9e6, #ffe082);">📦<div class="product-type-badge badge-etb">ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
-          <div class="card-name">Elite Trainer Box</div>
-          <div class="card-desc">9 boostera + dodaci</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>60</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fafafa, #bdbdbd);">📦<div class="product-type-badge badge-etb">PC ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
-          <div class="card-name">Pokémon Center Elite Trainer Box</div>
-          <div class="card-desc">Ekskluzivni Pokémon Center ETB</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>150</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦<div class="product-type-badge badge-booster">Booster Box</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>190</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">📦<div class="product-type-badge badge-etb">PC ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
-          <div class="card-name">Pokémon Center Elite Trainer Box</div>
-          <div class="card-desc">Ekskluzivni Pokémon Center ETB</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>140</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/22507.jpg" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Surging Sparks</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>215</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Prismatic Evolutions</div>
-          <div class="card-name">Booster Bundle</div>
-          <div class="card-desc">4 boostera u paketu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>75</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">🎁<div class="product-type-badge badge-bundle">Bundle Display</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Prismatic Evolutions</div>
-          <div class="card-name">Booster Bundle Display</div>
-          <div class="card-desc">Display kutija s bundle paketima</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>900</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦<div class="product-type-badge badge-etb">PC ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Prismatic Evolutions</div>
-          <div class="card-name">Pokémon Center Elite Trainer Box</div>
-          <div class="card-desc">Ekskluzivni Pokémon Center ETB</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>400</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">🎮<div class="product-type-badge badge-ostalo">Mini Tin Display</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Prismatic Evolutions</div>
-          <div class="card-name">Mini Tin Display</div>
-          <div class="card-desc">Display s mini tin kutijicama</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>165</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">📦<div class="product-type-badge badge-etb">ETB</div></div><div class="card-body"><div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div><div class="card-name">Elite Trainer Box</div><div class="card-desc">9 boostera + dodaci</div><div class="card-footer"><div class="card-price"><span>€</span>58,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #fff9e6, #fff3cd);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div><div class="card-body"><div class="card-set">Scarlet &amp; Violet – Paradox Rift</div><div class="card-name">Booster Bundle</div><div class="card-desc">6 boostera u paketu</div><div class="card-footer"><div class="card-price"><span>€</span>28,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div><div class="card-body"><div class="card-set">Scarlet &amp; Violet – Base Set</div><div class="card-name">Booster Box</div><div class="card-desc">36 boostera u kutiji</div><div class="card-footer"><div class="card-price"><span>€</span>110,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">⭐<div class="product-type-badge badge-premium">Premium</div></div><div class="card-body"><div class="card-set">Scarlet &amp; Violet – Paldean Fates</div><div class="card-name">Premium Collection</div><div class="card-desc">Ekskluzivni set s promo kartama</div><div class="card-footer"><div class="card-price"><span>€</span>65,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
     </div>
   </div>
-
-  <!-- MEGA EVOLUTION -->
   <div class="era-block" id="mega">
     <div class="era-title">Mega Evolution</div>
     <div class="era-badge mega">2025 – danas</div>
     <div class="cards-grid">
-
-      <div class="card">
-        <div class="card-image"><img src="images/cb4ed79e-d0fa-4ce2-b832-bcde5683ab2d-high-2mfdot.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Journey Together</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>180</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦<div class="product-type-badge badge-booster">BB Case</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Journey Together</div>
-          <div class="card-name">Booster Box Case (6 kom)</div>
-          <div class="card-desc">6 Booster Boxeva u jednom caseu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>1050</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/cb4ed79e-d0fa-4ce2-b832-bcde5683ab2d-high-2mfdot.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Journey Together</div>
-          <div class="card-name">Enhanced Booster Box</div>
-          <div class="card-desc">Poboljšana verzija booster boxa</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>235</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/Destined-Rivals-Booster-Box-scaled-1.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Destined Rivals</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>450</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦<div class="product-type-badge badge-booster">BB Case</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Destined Rivals</div>
-          <div class="card-name">Booster Box Case (6 kom)</div>
-          <div class="card-desc">6 Booster Boxeva u jednom caseu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>3000</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/2-5-high.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Black Bolt</div>
-          <div class="card-name">Booster Bundle</div>
-          <div class="card-desc">4 boostera u paketu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>45</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #263238, #546e7a);">📦<div class="product-type-badge badge-etb">ETB Case</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Black Bolt</div>
-          <div class="card-name">Elite Trainer Box Case (10 kom)</div>
-          <div class="card-desc">10 ETB kutija u jednom caseu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>770</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/2-3-high-mhnxe7.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – White Flare</div>
-          <div class="card-name">Booster Bundle</div>
-          <div class="card-desc">4 boostera u paketu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>45</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fafafa, #e0e0e0);">📦<div class="product-type-badge badge-etb">ETB</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – White Flare</div>
-          <div class="card-name">Elite Trainer Box</div>
-          <div class="card-desc">9 boostera + dodaci</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>70</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📦<div class="product-type-badge badge-etb">ETB Case</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – White Flare</div>
-          <div class="card-name">Elite Trainer Box Case (10 kom)</div>
-          <div class="card-desc">10 ETB kutija u jednom caseu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>750</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/1-4-high-nsbtm9.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Unova</div>
-          <div class="card-name">Victini Illustration Collection</div>
-          <div class="card-desc">Ekskluzivna ilustracijska kolekcija</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>35</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/1275096651-high.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Mega Evolution</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>210</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/New-Project.jpg" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Mega Evolution</div>
-          <div class="card-name">Enhanced Booster Box</div>
-          <div class="card-desc">Poboljšana verzija booster boxa</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>250</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/Phantasmal-Flames-Box-scaled-1.jpeg" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Phantasmal Flames</div>
-          <div class="card-name">Booster Box</div>
-          <div class="card-desc">36 boostera u kutiji</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>225</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦<div class="product-type-badge badge-booster">BB Case</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Phantasmal Flames</div>
-          <div class="card-name">Booster Box Case (6 kom)</div>
-          <div class="card-desc">6 Booster Boxeva u jednom caseu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>1400</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/Phantasmal-Flames-ETB.jpeg" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Phantasmal Flames</div>
-          <div class="card-name">Elite Trainer Box</div>
-          <div class="card-desc">9 boostera + dodaci</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>75</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/846734.png" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Phantasmal Flames</div>
-          <div class="card-name">Booster Bundle</div>
-          <div class="card-desc">4 boostera u paketu</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>43</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/Mega-Charizard-X-ex-Ultra-Premium-Collection.jpg" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Mega Charizard X</div>
-          <div class="card-name">Ex Ultra-Premium Collection</div>
-          <div class="card-desc">Ekskluzivni Charizard X set s figuricom</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>180</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #1e88e5);">⭐<div class="product-type-badge badge-premium">Ultra Premium</div></div>
-        <div class="card-body">
-          <div class="card-set">Pokémon – Team Rocket's Moltres ex</div>
-          <div class="card-name">Ultra-Premium Collection</div>
-          <div class="card-desc">Ekskluzivni Team Rocket set</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>200</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎮<div class="product-type-badge badge-ostalo">Kolekcija</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Ascended Heroes</div>
-          <div class="card-name">Collection</div>
-          <div class="card-desc">Ekskluzivna kolekcija heroja</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>20</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">🎮<div class="product-type-badge badge-ostalo">Tech Sticker</div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Ascended Heroes</div>
-          <div class="card-name">Tech Sticker</div>
-          <div class="card-desc">Ekskluzivni tech sticker set</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>30</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/pokemon_tcg_-_pokemon_day_2026_collection_en-3030x3616-9378ffb-high.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Pokémon – Pokémon Day 2026</div>
-          <div class="card-name">Pokémon Day 2026</div>
-          <div class="card-desc">Ekskluzivni Pokémon Day promo set</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>25</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/Mega-Charizard-X-ex-Tin.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Mega Charizard X</div>
-          <div class="card-name">Mega Charizard X Tin</div>
-          <div class="card-desc">Tin kutija s promo karticom</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>33</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"><img src="images/Mega-Charizard-Y-ex-Tin.webp" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;"></div></div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet – Mega Charizard Y</div>
-          <div class="card-name">Mega Charizard Y Tin</div>
-          <div class="card-desc">Tin kutija s promo karticom</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>33</div>
-          <a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div>
-        </div>
-      </div>
-
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div><div class="card-body"><div class="card-set">XY – Evolutions</div><div class="card-name">Booster Box</div><div class="card-desc">36 boostera • Vintage set!</div><div class="card-footer"><div class="card-price"><span>€</span>380,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
+      <div class="card"><div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦<div class="product-type-badge badge-etb">ETB</div></div><div class="card-body"><div class="card-set">XY – BREAKthrough</div><div class="card-name">Elite Trainer Box</div><div class="card-desc">8 boostera + dodaci • Vintage!</div><div class="card-footer"><div class="card-price"><span>€</span>120,00</div><a href="https://m.me/safarizone.eu" class="order-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg> Naruči</a></div></div></div>
     </div>
   </div>
-
 </section>
-
-</section>
-
-<a href="https://m.me/safarizone.eu" class="whatsapp-float" target="_blank">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
-  </svg>
-</a>
-
-<footer>
-  <strong>Safari Zone</strong><br><br>
-  Pokémon TCG • Hrvatska<br>
-  Sve upite šalji putem Facebooka · safarizone.eu
-</footer>
-
+<a href="https://m.me/safarizone.eu" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
+<footer><strong>Safari Zone</strong><br><br>Pokémon TCG • Hrvatska<br>Sve upite šalji putem Facebooka · safarizone.eu</footer>
 </body>
 </html>
