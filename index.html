@@ -58,8 +58,10 @@
     justify-content: space-between;
     padding: 1.2rem 0;
     width: 100%;
+    position: relative;
   }
-  .header-left { display: flex; align-items: center; gap: 2rem; }
+  .header-left { display: flex; align-items: center; }
+  .header-inner nav { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; align-items: center; }
   .logo { display: flex; align-items: center; gap: 1rem; }
 
   /* FIX 2: Logo - čista Pokéball kugla */
@@ -85,7 +87,6 @@
   .logo-title { font-family: 'Press Start 2P', monospace; font-size: 1rem; color: var(--green-light); line-height: 1.2; letter-spacing: 1px; }
   .logo-sub { font-size: 0.75rem; color: var(--green-pale); font-weight: 600; margin-top: 2px; letter-spacing: 2px; text-transform: uppercase; }
 
-  nav { display: flex; gap: 0.5rem; align-items: center; }
 
   /* FIX 1: Dropdown meni - bridge gap da ne nestaje */
   .nav-item { position: relative; }
@@ -271,7 +272,8 @@
           <div class="logo-sub">Pokémon TCG</div>
         </div>
       </div>
-      <nav>
+    </div>
+    <nav>
         <div class="nav-item">
           <button>Proizvodi</button>
           <!-- FIX 1: padding-top bridge sprječava nestajanje dropdowna -->
@@ -296,8 +298,7 @@
             </div>
           </div>
         </div>
-      </nav>
-    </div>
+    </nav>
     <!-- FIX 3: Facebook ikona za Messenger kontakt -->
     <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">☰</button>
   </div>
