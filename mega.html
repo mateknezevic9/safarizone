@@ -13,7 +13,7 @@
     --green-pale: #b7e4c7;
     --yellow: #ffd166;
     --white: #f8fff9;
-    --card-bg: #0d2818;
+    --card-bg: rgba(13, 40, 24, 0.45);
     --shadow: 0 4px 24px rgba(0,0,0,0.12);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +22,7 @@
   body {
     font-family: 'Nunito', sans-serif;
     background-color: var(--green-dark);
-    background-image: url('safari-bg.webp');
+    background-image: url('images/safari-bg.webp');
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
@@ -164,7 +164,7 @@
   .era-badge.mega { background: rgba(180,100,220,0.2); color: #e0b3ff; border: 1px solid rgba(180,100,220,0.3); }
 
   .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; row-gap: 2rem; }
-  .card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; animation: fadeUp 0.5s ease both; }
+  .card { background: var(--card-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; animation: fadeUp 0.5s ease both; }
   .card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
   .card-image { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; position: relative; overflow: hidden; background: #fff; }
   .card-image img { width: 100%; height: 100%; object-fit: contain; padding: 8px; box-sizing: border-box; display: block; }
@@ -328,71 +328,27 @@
     <div class="era-title">Mega Evolution</div>
     <div class="cards-grid">
       <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">📦</div>
-        <div class="card-body">
-          <div class="card-set">Booster Box</div>
-          <div class="card-name">Scarlet &amp; Violet – Mega Evolution</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>210</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦</div>
-        <div class="card-body">
-          <div class="card-set">Enhanced Booster Box</div>
-          <div class="card-name">Scarlet &amp; Violet – Mega Evolution</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>250</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">📦</div>
-        <div class="card-body">
-          <div class="card-set">Booster Box</div>
-          <div class="card-name">Scarlet &amp; Violet – Phantasmal Flames</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>225</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦</div>
-        <div class="card-body">
-          <div class="card-set">Booster Box Case (6 kom)</div>
-          <div class="card-name">Scarlet &amp; Violet – Phantasmal Flames</div>
-          
-          <div class="card-footer"><div class="card-price"><span>€</span>1400</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦</div>
-        <div class="card-body">
-          <div class="card-set">Booster Box Case (6 kom)</div>
-          <div class="card-name">Scarlet &amp; Violet – Phantasmal Flames</div>
-          <div class="card-footer"><div class="card-price"><span>€</span>75</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁</div>
+      <div class="card-image"><img src="images/846734.png" alt="846734.png"></div>
         <div class="card-body">
           <div class="card-set">Booster Bundle</div>
           <div class="card-name">Scarlet &amp; Violet – Phantasmal Flames</div>
           <div class="card-footer"><div class="card-price"><span>€</span>43</div></div>
         </div>
-      </div>
-      <div class="card">
+      </div>      <div class="card">
         <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffee58);">🎮</div>
         <div class="card-body">
           <div class="card-set">Pokémon Day 2026</div>
           <div class="card-name">Pokémon – Pokémon Day 2026</div>
           <div class="card-footer"><div class="card-price"><span>€</span>25</div></div>
         </div>
-      </div>
-      <div class="card">
+      </div>      <div class="card">
         <div class="card-image" style="background: linear-gradient(135deg, #ff8f00, #ffca28);">🎮</div>
         <div class="card-body">
           <div class="card-set">Mega Charizard X Tin</div>
           <div class="card-name">Scarlet &amp; Violet – Mega Charizard X</div>
           <div class="card-footer"><div class="card-price"><span>€</span>33</div></div>
         </div>
-      </div>
-      <div class="card">
+      </div>      <div class="card">
         <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #1565c0);">🎮</div>
         <div class="card-body">
           <div class="card-set">Mega Charizard Y Tin</div>
