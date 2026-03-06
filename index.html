@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Safari Zone – Pokémon TCG</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Safari Zone – Pokémon TCG</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --green-dark: #1a3a2a;
       --green-mid: #2d6a4f;
@@ -45,13 +46,11 @@
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      display: flex;
       align-items: center;
+      justify-content: center;
       padding: 1.2rem 0;
     }
-    .header-inner nav { justify-self: center; }
-    .header-inner .hamburger { justify-self: end; }
     .logo {
       display: flex;
       align-items: center;
@@ -280,7 +279,7 @@
     .card-set { font-size: 0.7rem; font-weight: 700; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.3rem; }
     .card-name { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 0.2rem; }
     .card-desc { font-size: 0.78rem; color: #666; margin-bottom: 1rem; line-height: 1.4; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .card-footer { display: flex; align-items: center; justify-content: center; }
     .card-price { font-size: 1.3rem; font-weight: 800; color: var(--green-pale); }
     .card-price span { font-size: 0.85rem; font-weight: 600; }
     footer {
@@ -295,7 +294,7 @@
     }
     footer strong { color: var(--green-light); font-family: 'Press Start 2P', monospace; font-size: 0.7rem; }
     @media (max-width: 768px) {
-      .header-inner { display: flex; justify-content: space-between; }
+      .header-inner { display: flex; justify-content: center; }
       nav { display: none; }
       .hamburger { display: flex; margin-left: auto; }
       .logo-title { font-size: 0.75rem; }
@@ -310,684 +309,546 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <a href="https://safarizone.eu" class="logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 4 A46 46 0 0 1 96 50 L4 50 A46 46 0 0 1 50 4 Z" fill="#CC0000"/>
-            <path d="M50 96 A46 46 0 0 1 4 50 L96 50 A46 46 0 0 1 50 96 Z" fill="#F5F5F5"/>
-            <circle cx="50" cy="50" r="46" fill="none" stroke="#1a1a1a" stroke-width="6"/>
-            <line x1="4" y1="50" x2="96" y2="50" stroke="#1a1a1a" stroke-width="6"/>
-            <circle cx="50" cy="50" r="14" fill="white" stroke="#1a1a1a" stroke-width="6"/>
-            <circle cx="50" cy="50" r="6" fill="#DDDDDD"/>
-          </svg>
-        </div>
-        <div class="logo-text">
-          <div class="logo-title">Safari Zone</div>
-          <div class="logo-sub">Pokémon TCG</div>
-        </div>
-      </a>
-      <nav>
-        <div class="nav-item">
-          <button>Proizvodi</button>
-          <div class="dropdown"><div class="dropdown-inner">
-            <a href="#katalog">Booster Box</a>
-            <a href="#katalog">Elite Trainer Box</a>
-            <a href="#katalog">Pokemon Center Elite Trainer Box</a>
-            <a href="#katalog">Booster Bundle</a>
-            <a href="#katalog">Premium Collection</a>
-            <a href="#katalog">Ostalo</a>
-          </div></div>
-        </div>
-        <div class="nav-item">
-          <button>Era</button>
-          <div class="dropdown"><div class="dropdown-inner">
-            <a href="#sw-sh">Sword &amp; Shield</a>
-            <a href="#sc-vi">Scarlet &amp; Violet</a>
-            <a href="#mega">Mega Evolution</a>
-          </div></div>
-        </div>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-section">Proizvodi</div>
-      <a href="#katalog" onclick="closeMobileMenu()">Booster Box</a>
-      <a href="#katalog" onclick="closeMobileMenu()">Elite Trainer Box</a>
-      <a href="#katalog" onclick="closeMobileMenu()">Pokemon Center Elite Trainer Box</a>
-      <a href="#katalog" onclick="closeMobileMenu()">Booster Bundle</a>
-      <a href="#katalog" onclick="closeMobileMenu()">Premium Collection</a>
-      <a href="#katalog" onclick="closeMobileMenu()">Ostalo</a>
-      <div class="mobile-menu-section">Era</div>
-      <a href="#sw-sh" onclick="closeMobileMenu()">Sword &amp; Shield</a>
-      <a href="#sc-vi" onclick="closeMobileMenu()">Scarlet &amp; Violet</a>
-      <a href="#mega" onclick="closeMobileMenu()">Mega Evolution</a>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-badge">POKÉMON TCG</div>
-  </section>
-
-  <div class="highlights">
-    <div class="highlights-title">✨ Istaknuti proizvodi</div>
-    <div class="cards-grid" style="max-width: 800px;">
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
-        <div class="card-body">
-          <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
-          <div class="card-name">Booster Box</div>
-
-          <div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
-        <div class="card-body">
-          <div class="card-set">Scarlet &amp; Violet</div>
-          <div class="card-name">Booster Box</div>
-
-          <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
-        <div class="card-body">
-          
-          <div class="card-name">Booster Box</div>
-
-          <div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="grid-section" id="katalog">
-
-    <div class="era-block" id="sw-sh">
-      <div class="era-title">Sword &amp; Shield</div>
-      <div class="era-badge sw-sh">2020 – 2023</div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Chilling Reign</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>420,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Fusion Strike</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>470,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
-            <div class="card-name">Pokemon Center Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>200,00<span>/kom</span></div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Lost Origin</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>580,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Lost Origin</div>
-            <div class="card-name">Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff59d);">⭐</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Charizard</div>
-            <div class="card-name">Ultra-Premium Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Silver Tempest</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⭐</div>
-          <div class="card-body">
-            <div class="card-set">Sword &amp; Shield – Celebrations</div>
-            <div class="card-name">Ultra-Premium Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>800,00</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="era-block" id="sc-vi">
-      <div class="era-title">Scarlet &amp; Violet</div>
-      <div class="era-badge sc-vi">2023 – 2025</div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Paldea Evolved</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>300,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>270,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎁</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – 151</div>
-            <div class="card-name">Booster Bundle Display</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>1300,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – 151</div>
-            <div class="card-name">Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>350,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">⭐</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – 151</div>
-            <div class="card-name">Ultra-Premium Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>530,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
-            <div class="card-name">Elite Trainer Box Case</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-            <div class="card-name">PC ETB – Iron Leaves</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-            <div class="card-name">PC ETB – Walking Wake</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Twilight Masquerade</div>
-            <div class="card-name">Pokemon Center Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
-            <div class="card-name">Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>60,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #4db6ac);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
-            <div class="card-name">Pokemon Center Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffee58);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff59d);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
-            <div class="card-name">Pokemon Center Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f06292);">🎴</div>
-          <div class="card-body">
-            <div class="card-set">Scarlet &amp; Violet – Surging Sparks</div>
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>215,00</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="era-block" id="prismatic">
-      <div class="era-title">Prismatic Evolutions</div>
-      <div class="era-badge prismatic">2025</div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">🎁</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Bundle</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">🎁</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Bundle Display</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>900,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
-          <div class="card-body">
-            
-            <div class="card-name">Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>160,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #b39ddb);">📦</div>
-          <div class="card-body">
-            
-            <div class="card-name">Pokemon Center Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>400,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">⭐</div>
-          <div class="card-body">
-            
-            <div class="card-name">Super-Premium Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #81c784);">⭐</div>
-          <div class="card-body">
-            
-            <div class="card-name">Premium Figure Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
-          <div class="card-body">
-            
-            <div class="card-name">Mini Tin Display</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>165,00</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="era-block" id="journey">
-      <div class="era-title">Journey Together</div>
-      <div class="era-badge journey">2025</div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #b2ebf2, #4dd0e1);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Box Case</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>1050,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Enhanced Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>235,00</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="era-block" id="destined">
-      <div class="era-title">Destined Rivals</div>
-      <div class="era-badge destined">2025</div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>450,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ff9800);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Box Case</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>3000,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎁</div>
-          <div class="card-body">
-            <div class="card-set">Destined Rivals – Black Bolt</div>
-            <div class="card-name">Booster Bundle</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Destined Rivals – Black Bolt</div>
-            <div class="card-name">Elite Trainer Box Case</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>770,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f5f5f5, #bdbdbd);">🎁</div>
-          <div class="card-body">
-            <div class="card-set">Destined Rivals – White Flare</div>
-            <div class="card-name">Booster Bundle</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fafafa, #e0e0e0);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Destined Rivals – White Flare</div>
-            <div class="card-name">Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>70,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #eceff1, #90a4ae);">📦</div>
-          <div class="card-body">
-            <div class="card-set">Destined Rivals – White Flare</div>
-            <div class="card-name">Elite Trainer Box Case</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁</div>
-          <div class="card-body">
-            
-            <div class="card-name">Unova Victini Illustration Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>35,00</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="era-block" id="black-white">
-      <div class="era-title">Black &amp; White</div>
-      <div class="era-badge black-white">2025</div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>225,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Box Case</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>1400,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ba68c8);">📦</div>
-          <div class="card-body">
-            
-            <div class="card-name">Elite Trainer Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #e91e63);">🎁</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Bundle</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>43,00</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="era-block" id="mega">
-      <div class="era-title">Mega Evolution</div>
-      <div class="era-badge mega">2025 – danas</div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ffcdd2, #e57373);">🎴</div>
-          <div class="card-body">
-            
-            <div class="card-name">Enhanced Booster Box</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffd54f);">⭐</div>
-          <div class="card-body">
-            <div class="card-set">Mega Charizard X EX</div>
-            <div class="card-name">Ultra-Premium Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ffb300);">⭐</div>
-          <div class="card-body">
-            <div class="card-set">Team Rocket's Moltres EX</div>
-            <div class="card-name">Ultra-Premium Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎁</div>
-          <div class="card-body">
-            <div class="card-set">Mega Charizard</div>
-            <div class="card-name">X/Y Tin</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>33,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
-          <div class="card-body">
-            <div class="card-set">Ascended Heroes</div>
-            <div class="card-name">Collection</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>20,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ab47bc);">🎁</div>
-          <div class="card-body">
-            <div class="card-set">Ascended Heroes</div>
-            <div class="card-name">Tech Sticker</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>30,00</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc02);">🎁</div>
-          <div class="card-body">
-            <div class="card-set">Pokémon Day 2026</div>
-            <div class="card-name">Pokemon Day Set</div>
-
-            <div class="card-footer"><div class="card-price"><span>€</span>25,00</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <footer>
-    <strong>Safari Zone</strong><br><br>
-    Pokémon TCG • Hrvatska<br>
+<header>
+<div class="header-inner">
+<a class="logo" href="https://safarizone.eu">
+<div class="logo-icon">
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 4 A46 46 0 0 1 96 50 L4 50 A46 46 0 0 1 50 4 Z" fill="#CC0000"></path>
+<path d="M50 96 A46 46 0 0 1 4 50 L96 50 A46 46 0 0 1 50 96 Z" fill="#F5F5F5"></path>
+<circle cx="50" cy="50" fill="none" r="46" stroke="#1a1a1a" stroke-width="6"></circle>
+<line stroke="#1a1a1a" stroke-width="6" x1="4" x2="96" y1="50" y2="50"></line>
+<circle cx="50" cy="50" fill="white" r="14" stroke="#1a1a1a" stroke-width="6"></circle>
+<circle cx="50" cy="50" fill="#DDDDDD" r="6"></circle>
+</svg>
+</div>
+<div class="logo-text">
+<div class="logo-title">Safari Zone</div>
+<div class="logo-sub">Pokémon TCG</div>
+</div>
+</a>
+
+
+</div>
+
+</header>
+<section class="hero">
+<div class="hero-badge">POKÉMON TCG</div>
+</section>
+<div class="highlights">
+<div class="highlights-title">✨ Istaknuti proizvodi</div>
+<div class="cards-grid" style="max-width: 800px;">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Evolving Skies</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
+</div>
+</div>
+</div>
+</div>
+<section class="grid-section" id="katalog">
+<div class="era-block" id="sw-sh">
+<div class="era-title">Sword &amp; Shield</div>
+<div class="era-badge sw-sh">2020 – 2023</div>
+<div class="cards-grid">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Chilling Reign</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>420,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Evolving Skies</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🎴</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Fusion Strike</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🎴</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>470,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
+<div class="card-name">Pokemon Center Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>200,00<span>/kom</span></div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Lost Origin</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>580,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📦</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Lost Origin</div>
+<div class="card-name">Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff59d);">⭐</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Charizard</div>
+<div class="card-name">Ultra-Premium Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎴</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Silver Tempest</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⭐</div>
+<div class="card-body">
+<div class="card-set">Sword &amp; Shield – Celebrations</div>
+<div class="card-name">Ultra-Premium Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>800,00</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="era-block" id="sc-vi">
+<div class="era-title">Scarlet &amp; Violet</div>
+<div class="era-badge sc-vi">2023 – 2025</div>
+<div class="cards-grid">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Paldea Evolved</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>300,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>270,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎁</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – 151</div>
+<div class="card-name">Booster Bundle Display</div>
+<div class="card-footer"><div class="card-price"><span>€</span>1300,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – 151</div>
+<div class="card-name">Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>350,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">⭐</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – 151</div>
+<div class="card-name">Ultra-Premium Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>530,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
+<div class="card-name">Elite Trainer Box Case</div>
+<div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
+<div class="card-name">PC ETB – Iron Leaves</div>
+<div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
+<div class="card-name">PC ETB – Walking Wake</div>
+<div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Twilight Masquerade</div>
+<div class="card-name">Pokemon Center Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
+<div class="card-name">Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>60,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #4db6ac);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
+<div class="card-name">Pokemon Center Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffee58);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff59d);">📦</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
+<div class="card-name">Pokemon Center Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f06292);">🎴</div>
+<div class="card-body">
+<div class="card-set">Scarlet &amp; Violet – Surging Sparks</div>
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>215,00</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="era-block" id="prismatic">
+<div class="era-title">Prismatic Evolutions</div>
+<div class="era-badge prismatic">2025</div>
+<div class="cards-grid">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">🎁</div>
+<div class="card-body">
+<div class="card-name">Booster Bundle</div>
+<div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">🎁</div>
+<div class="card-body">
+<div class="card-name">Booster Bundle Display</div>
+<div class="card-footer"><div class="card-price"><span>€</span>900,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
+<div class="card-body">
+<div class="card-name">Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>160,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #b39ddb);">📦</div>
+<div class="card-body">
+<div class="card-name">Pokemon Center Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>400,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">⭐</div>
+<div class="card-body">
+<div class="card-name">Super-Premium Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #81c784);">⭐</div>
+<div class="card-body">
+<div class="card-name">Premium Figure Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
+<div class="card-body">
+<div class="card-name">Mini Tin Display</div>
+<div class="card-footer"><div class="card-price"><span>€</span>165,00</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="era-block" id="journey">
+<div class="era-title">Journey Together</div>
+<div class="era-badge journey">2025</div>
+<div class="cards-grid">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #b2ebf2, #4dd0e1);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box Case</div>
+<div class="card-footer"><div class="card-price"><span>€</span>1050,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎴</div>
+<div class="card-body">
+<div class="card-name">Enhanced Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>235,00</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="era-block" id="destined">
+<div class="era-title">Destined Rivals</div>
+<div class="era-badge destined">2025</div>
+<div class="cards-grid">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>450,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ff9800);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box Case</div>
+<div class="card-footer"><div class="card-price"><span>€</span>3000,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎁</div>
+<div class="card-body">
+<div class="card-set">Destined Rivals – Black Bolt</div>
+<div class="card-name">Booster Bundle</div>
+<div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">📦</div>
+<div class="card-body">
+<div class="card-set">Destined Rivals – Black Bolt</div>
+<div class="card-name">Elite Trainer Box Case</div>
+<div class="card-footer"><div class="card-price"><span>€</span>770,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #f5f5f5, #bdbdbd);">🎁</div>
+<div class="card-body">
+<div class="card-set">Destined Rivals – White Flare</div>
+<div class="card-name">Booster Bundle</div>
+<div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fafafa, #e0e0e0);">📦</div>
+<div class="card-body">
+<div class="card-set">Destined Rivals – White Flare</div>
+<div class="card-name">Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>70,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #eceff1, #90a4ae);">📦</div>
+<div class="card-body">
+<div class="card-set">Destined Rivals – White Flare</div>
+<div class="card-name">Elite Trainer Box Case</div>
+<div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁</div>
+<div class="card-body">
+<div class="card-name">Unova Victini Illustration Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>35,00</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="era-block" id="black-white">
+<div class="era-title">Black &amp; White</div>
+<div class="era-badge black-white">2025</div>
+<div class="cards-grid">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>225,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box Case</div>
+<div class="card-footer"><div class="card-price"><span>€</span>1400,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ba68c8);">📦</div>
+<div class="card-body">
+<div class="card-name">Elite Trainer Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #e91e63);">🎁</div>
+<div class="card-body">
+<div class="card-name">Booster Bundle</div>
+<div class="card-footer"><div class="card-price"><span>€</span>43,00</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="era-block" id="mega">
+<div class="era-title">Mega Evolution</div>
+<div class="era-badge mega">2025 – danas</div>
+<div class="cards-grid">
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
+<div class="card-body">
+<div class="card-name">Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #ffcdd2, #e57373);">🎴</div>
+<div class="card-body">
+<div class="card-name">Enhanced Booster Box</div>
+<div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffd54f);">⭐</div>
+<div class="card-body">
+<div class="card-set">Mega Charizard X EX</div>
+<div class="card-name">Ultra-Premium Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ffb300);">⭐</div>
+<div class="card-body">
+<div class="card-set">Team Rocket's Moltres EX</div>
+<div class="card-name">Ultra-Premium Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎁</div>
+<div class="card-body">
+<div class="card-set">Mega Charizard</div>
+<div class="card-name">X/Y Tin</div>
+<div class="card-footer"><div class="card-price"><span>€</span>33,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
+<div class="card-body">
+<div class="card-set">Ascended Heroes</div>
+<div class="card-name">Collection</div>
+<div class="card-footer"><div class="card-price"><span>€</span>20,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ab47bc);">🎁</div>
+<div class="card-body">
+<div class="card-set">Ascended Heroes</div>
+<div class="card-name">Tech Sticker</div>
+<div class="card-footer"><div class="card-price"><span>€</span>30,00</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc02);">🎁</div>
+<div class="card-body">
+<div class="card-set">Pokémon Day 2026</div>
+<div class="card-name">Pokemon Day Set</div>
+<div class="card-footer"><div class="card-price"><span>€</span>25,00</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<strong>Safari Zone</strong><br/><br/>
+    Pokémon TCG • Hrvatska<br/>
     Sve upite šalji putem Facebooka · safarizone.eu
   </footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    function closeMobileMenu() {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    }
-  </script>
 </body>
 </html>
