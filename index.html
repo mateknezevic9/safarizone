@@ -11,7 +11,6 @@
       --green-mid: #2d6a4f;
       --green-light: #52b788;
       --green-pale: #b7e4c7;
-      --yellow: #ffd166;
       --white: #f8fff9;
       --card-bg: #ffffff;
       --shadow: 0 4px 24px rgba(0,0,0,0.12);
@@ -48,7 +47,8 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 3rem;
       padding: 1.2rem 0;
     }
     .logo {
@@ -90,7 +90,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-    nav { display: flex; gap: 0.5rem; align-items: center; margin-left: 2rem; }
+    nav { display: flex; gap: 0.5rem; align-items: center; }
     .nav-item { position: relative; }
     .nav-item > button {
       color: var(--green-pale);
@@ -219,7 +219,6 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
       animation: fadeUp 0.5s ease both;
     }
     .card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
@@ -230,10 +229,7 @@
       align-items: center;
       justify-content: center;
       font-size: 4.5rem;
-      position: relative;
-      overflow: hidden;
     }
-    .product-type-badge { display: none; }
     .card-body { padding: 1rem 1.2rem 1.2rem; color: var(--green-dark); }
     .card-set { font-size: 0.7rem; font-weight: 700; color: var(--green-mid); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.3rem; }
     .card-name { font-size: 1rem; font-weight: 800; color: #1a1a2e; margin-bottom: 0.2rem; }
@@ -297,14 +293,10 @@
           </div></div>
         </div>
         <div class="nav-item">
-          <button>Setovi</button>
+          <button>Era</button>
           <div class="dropdown"><div class="dropdown-inner">
             <a href="#sw-sh">Sword &amp; Shield</a>
             <a href="#sc-vi">Scarlet &amp; Violet</a>
-            <a href="#prismatic">Prismatic Evolutions</a>
-            <a href="#journey">Journey Together</a>
-            <a href="#destined">Destined Rivals</a>
-            <a href="#black-white">Black &amp; White</a>
             <a href="#mega">Mega Evolution</a>
           </div></div>
         </div>
@@ -333,13 +325,12 @@
 
   <section class="grid-section" id="katalog">
 
-    <!-- SWORD & SHIELD -->
     <div class="era-block" id="sw-sh">
       <div class="era-title">Sword &amp; Shield</div>
       <div class="era-badge sw-sh">2020 – 2023</div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Chilling Reign</div>
             <div class="card-name">Booster Box</div>
@@ -348,7 +339,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
             <div class="card-name">Booster Box</div>
@@ -357,7 +348,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🎴</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Fusion Strike</div>
             <div class="card-name">Booster Box</div>
@@ -366,7 +357,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🎴</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
             <div class="card-name">Booster Box</div>
@@ -375,7 +366,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
             <div class="card-name">Pokemon Center Elite Trainer Box</div>
@@ -384,7 +375,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Lost Origin</div>
             <div class="card-name">Booster Box</div>
@@ -393,7 +384,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📦</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Lost Origin</div>
             <div class="card-name">Elite Trainer Box</div>
@@ -402,7 +393,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff59d);">⭐<div class="product-type-badge badge-premium">Premium</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff59d);">⭐</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Charizard</div>
             <div class="card-name">Ultra-Premium Collection</div>
@@ -411,7 +402,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎴</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Silver Tempest</div>
             <div class="card-name">Booster Box</div>
@@ -420,7 +411,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⭐<div class="product-type-badge badge-premium">Premium</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⭐</div>
           <div class="card-body">
             <div class="card-set">Sword &amp; Shield – Celebrations</div>
             <div class="card-name">Ultra-Premium Collection</div>
@@ -431,13 +422,12 @@
       </div>
     </div>
 
-    <!-- SCARLET & VIOLET -->
     <div class="era-block" id="sc-vi">
       <div class="era-title">Scarlet &amp; Violet</div>
       <div class="era-badge sc-vi">2023 – 2025</div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Base Set</div>
             <div class="card-name">Booster Box</div>
@@ -446,7 +436,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Paldea Evolved</div>
             <div class="card-name">Booster Box</div>
@@ -455,7 +445,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">🎴</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div>
             <div class="card-name">Booster Box</div>
@@ -464,7 +454,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎁</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – 151</div>
             <div class="card-name">Booster Bundle Display</div>
@@ -473,7 +463,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – 151</div>
             <div class="card-name">Elite Trainer Box</div>
@@ -482,7 +472,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">⭐<div class="product-type-badge badge-premium">Premium</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">⭐</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – 151</div>
             <div class="card-name">Ultra-Premium Collection</div>
@@ -491,7 +481,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
             <div class="card-name">Booster Box</div>
@@ -500,7 +490,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
             <div class="card-name">Elite Trainer Box Case</div>
@@ -509,7 +499,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎴</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
             <div class="card-name">Booster Box</div>
@@ -518,7 +508,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
             <div class="card-name">PC ETB – Iron Leaves</div>
@@ -527,7 +517,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
             <div class="card-name">PC ETB – Walking Wake</div>
@@ -536,7 +526,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Twilight Masquerade</div>
             <div class="card-name">Pokemon Center Elite Trainer Box</div>
@@ -545,7 +535,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
             <div class="card-name">Elite Trainer Box</div>
@@ -554,7 +544,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #4db6ac);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #4db6ac);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
             <div class="card-name">Pokemon Center Elite Trainer Box</div>
@@ -563,7 +553,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffee58);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffee58);">🎴</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
             <div class="card-name">Booster Box</div>
@@ -572,7 +562,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff59d);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff59d);">📦</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
             <div class="card-name">Pokemon Center Elite Trainer Box</div>
@@ -581,7 +571,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f06292);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f06292);">🎴</div>
           <div class="card-body">
             <div class="card-set">Scarlet &amp; Violet – Surging Sparks</div>
             <div class="card-name">Booster Box</div>
@@ -592,13 +582,12 @@
       </div>
     </div>
 
-    <!-- PRISMATIC EVOLUTIONS -->
     <div class="era-block" id="prismatic">
       <div class="era-title">Prismatic Evolutions</div>
       <div class="era-badge prismatic">2025</div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">🎁</div>
           <div class="card-body">
             <div class="card-set">Prismatic Evolutions</div>
             <div class="card-name">Booster Bundle</div>
@@ -607,7 +596,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">🎁</div>
           <div class="card-body">
             <div class="card-set">Prismatic Evolutions</div>
             <div class="card-name">Booster Bundle Display</div>
@@ -616,7 +605,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
           <div class="card-body">
             <div class="card-set">Prismatic Evolutions</div>
             <div class="card-name">Elite Trainer Box</div>
@@ -625,7 +614,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #b39ddb);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #b39ddb);">📦</div>
           <div class="card-body">
             <div class="card-set">Prismatic Evolutions</div>
             <div class="card-name">Pokemon Center Elite Trainer Box</div>
@@ -634,7 +623,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">⭐<div class="product-type-badge badge-premium">Premium</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">⭐</div>
           <div class="card-body">
             <div class="card-set">Prismatic Evolutions</div>
             <div class="card-name">Super-Premium Collection</div>
@@ -643,7 +632,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #81c784);">⭐<div class="product-type-badge badge-premium">Premium</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #81c784);">⭐</div>
           <div class="card-body">
             <div class="card-set">Prismatic Evolutions</div>
             <div class="card-name">Premium Figure Collection</div>
@@ -652,7 +641,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
           <div class="card-body">
             <div class="card-set">Prismatic Evolutions</div>
             <div class="card-name">Mini Tin Display</div>
@@ -663,13 +652,12 @@
       </div>
     </div>
 
-    <!-- JOURNEY TOGETHER -->
     <div class="era-block" id="journey">
       <div class="era-title">Journey Together</div>
       <div class="era-badge journey">2025</div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
           <div class="card-body">
             <div class="card-set">Journey Together</div>
             <div class="card-name">Booster Box</div>
@@ -678,7 +666,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #b2ebf2, #4dd0e1);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #b2ebf2, #4dd0e1);">🎴</div>
           <div class="card-body">
             <div class="card-set">Journey Together</div>
             <div class="card-name">Booster Box Case</div>
@@ -687,7 +675,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎴</div>
           <div class="card-body">
             <div class="card-set">Journey Together</div>
             <div class="card-name">Enhanced Booster Box</div>
@@ -698,13 +686,12 @@
       </div>
     </div>
 
-    <!-- DESTINED RIVALS -->
     <div class="era-block" id="destined">
       <div class="era-title">Destined Rivals</div>
       <div class="era-badge destined">2025</div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">🎴</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals</div>
             <div class="card-name">Booster Box</div>
@@ -713,7 +700,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ff9800);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ff9800);">🎴</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals</div>
             <div class="card-name">Booster Box Case</div>
@@ -722,7 +709,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎁</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals – Black Bolt</div>
             <div class="card-name">Booster Bundle</div>
@@ -731,7 +718,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">📦</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals – Black Bolt</div>
             <div class="card-name">Elite Trainer Box Case</div>
@@ -740,7 +727,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f5f5f5, #bdbdbd);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #f5f5f5, #bdbdbd);">🎁</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals – White Flare</div>
             <div class="card-name">Booster Bundle</div>
@@ -749,7 +736,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fafafa, #e0e0e0);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fafafa, #e0e0e0);">📦</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals – White Flare</div>
             <div class="card-name">Elite Trainer Box</div>
@@ -758,7 +745,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #eceff1, #90a4ae);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #eceff1, #90a4ae);">📦</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals – White Flare</div>
             <div class="card-name">Elite Trainer Box Case</div>
@@ -767,7 +754,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁<div class="product-type-badge badge-ostalo">Ostalo</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁</div>
           <div class="card-body">
             <div class="card-set">Destined Rivals</div>
             <div class="card-name">Unova Victini Illustration Collection</div>
@@ -778,13 +765,12 @@
       </div>
     </div>
 
-    <!-- BLACK & WHITE (Phantasmal Flames) -->
     <div class="era-block" id="black-white">
       <div class="era-title">Black &amp; White</div>
       <div class="era-badge black-white">2025</div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎴</div>
           <div class="card-body">
             <div class="card-set">Phantasmal Flames</div>
             <div class="card-name">Booster Box</div>
@@ -793,7 +779,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">🎴</div>
           <div class="card-body">
             <div class="card-set">Phantasmal Flames</div>
             <div class="card-name">Booster Box Case</div>
@@ -802,7 +788,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ba68c8);">📦<div class="product-type-badge badge-etb">ETB</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ba68c8);">📦</div>
           <div class="card-body">
             <div class="card-set">Phantasmal Flames</div>
             <div class="card-name">Elite Trainer Box</div>
@@ -811,7 +797,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #e91e63);">🎁<div class="product-type-badge badge-bundle">Bundle</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #e91e63);">🎁</div>
           <div class="card-body">
             <div class="card-set">Phantasmal Flames</div>
             <div class="card-name">Booster Bundle</div>
@@ -822,13 +808,12 @@
       </div>
     </div>
 
-    <!-- MEGA EVOLUTION -->
     <div class="era-block" id="mega">
       <div class="era-title">Mega Evolution</div>
       <div class="era-badge mega">2025 – danas</div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
           <div class="card-body">
             <div class="card-set">Mega Evolution</div>
             <div class="card-name">Booster Box</div>
@@ -837,7 +822,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ffcdd2, #e57373);">🎴<div class="product-type-badge badge-booster">Booster Box</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #ffcdd2, #e57373);">🎴</div>
           <div class="card-body">
             <div class="card-set">Mega Evolution</div>
             <div class="card-name">Enhanced Booster Box</div>
@@ -846,7 +831,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffd54f);">⭐<div class="product-type-badge badge-premium">Premium</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffd54f);">⭐</div>
           <div class="card-body">
             <div class="card-set">Mega Charizard X EX</div>
             <div class="card-name">Ultra-Premium Collection</div>
@@ -855,7 +840,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ffb300);">⭐<div class="product-type-badge badge-premium">Premium</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ffb300);">⭐</div>
           <div class="card-body">
             <div class="card-set">Team Rocket's Moltres EX</div>
             <div class="card-name">Ultra-Premium Collection</div>
@@ -864,7 +849,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎁<div class="product-type-badge badge-ostalo">Ostalo</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎁</div>
           <div class="card-body">
             <div class="card-set">Mega Charizard</div>
             <div class="card-name">X/Y Tin</div>
@@ -873,7 +858,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁<div class="product-type-badge badge-ostalo">Ostalo</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
           <div class="card-body">
             <div class="card-set">Ascended Heroes</div>
             <div class="card-name">Collection</div>
@@ -882,7 +867,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ab47bc);">🎁<div class="product-type-badge badge-ostalo">Ostalo</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ab47bc);">🎁</div>
           <div class="card-body">
             <div class="card-set">Ascended Heroes</div>
             <div class="card-name">Tech Sticker</div>
@@ -891,7 +876,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc02);">🎁<div class="product-type-badge badge-ostalo">Ostalo</div></div>
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc02);">🎁</div>
           <div class="card-body">
             <div class="card-set">Pokémon Day 2026</div>
             <div class="card-name">Pokemon Day Set</div>
