@@ -137,6 +137,51 @@
       transition: all 0.2s;
     }
     .dropdown a:hover { background: rgba(82,183,136,0.15); color: var(--white); }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      margin-left: auto;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--green-pale);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #0d2818;
+      border-top: 1px solid rgba(82,183,136,0.2);
+      padding: 1rem 1.5rem;
+      gap: 0.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-section { font-size: 0.7rem; font-weight: 800; color: var(--green-light); letter-spacing: 2px; text-transform: uppercase; margin-top: 0.8rem; margin-bottom: 0.3rem; }
+    .mobile-menu a {
+      color: var(--green-pale);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.4rem 0.5rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .mobile-menu a:hover { background: rgba(82,183,136,0.15); color: var(--white); }
+
     .hero {
       position: relative;
       z-index: 1;
@@ -249,7 +294,9 @@
     }
     footer strong { color: var(--green-light); font-family: 'Press Start 2P', monospace; font-size: 0.7rem; }
     @media (max-width: 768px) {
-      .nav-item:not(:last-child) { display: none; }
+      .header-inner { justify-content: space-between; }
+      nav { display: none; }
+      .hamburger { display: flex; }
       .logo-title { font-size: 0.75rem; }
       .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .card-body { padding: 0.8rem; }
@@ -301,6 +348,22 @@
           </div></div>
         </div>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-section">Proizvodi</div>
+      <a href="#katalog" onclick="closeMobileMenu()">Booster Box</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Elite Trainer Box</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Pokemon Center Elite Trainer Box</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Booster Bundle</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Premium Collection</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Ostalo</a>
+      <div class="mobile-menu-section">Era</div>
+      <a href="#sw-sh" onclick="closeMobileMenu()">Sword &amp; Shield</a>
+      <a href="#sc-vi" onclick="closeMobileMenu()">Scarlet &amp; Violet</a>
+      <a href="#mega" onclick="closeMobileMenu()">Mega Evolution</a>
     </div>
   </header>
 
@@ -310,14 +373,32 @@
 
   <div class="highlights">
     <div class="highlights-title">✨ Istaknuti proizvodi</div>
-    <div class="cards-grid" style="max-width: 320px;">
+    <div class="cards-grid" style="max-width: 800px;">
       <div class="card">
-        <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴</div>
+        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
         <div class="card-body">
           <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
           <div class="card-name">Booster Box</div>
           <div class="card-desc">36 boostera u kutiji</div>
           <div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
+        <div class="card-body">
+          <div class="card-set">Scarlet &amp; Violet – Base Set</div>
+          <div class="card-name">Booster Box</div>
+          <div class="card-desc">36 boostera u kutiji</div>
+          <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
+        <div class="card-body">
+          <div class="card-set">Mega Evolution</div>
+          <div class="card-name">Booster Box</div>
+          <div class="card-desc">36 boostera u kutiji</div>
+          <div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
         </div>
       </div>
     </div>
@@ -892,7 +973,20 @@
   <footer>
     <strong>Safari Zone</strong><br><br>
     Pokémon TCG • Hrvatska<br>
-    Sve upite šalji putem Facebooka · safarizone.eu
+    Sve upite šalji putem Facebooka • safarizone.eu
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+  </script>
 </body>
 </html>
