@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="hr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Safari Zone – Pokémon TCG</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari Zone – Pokémon TCG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
     :root {
       --green-dark: #1a3a2a;
       --green-mid: #2d6a4f;
@@ -20,7 +19,7 @@
     body {
       font-family: 'Nunito', sans-serif;
       background-
-      background-image: url('data:image/webp;base64,UklGRng6AABXRUJQVlA4TGw6AAAvL8ORAO/BJIDbQIGBgYOT8BJe0kt9ODhYGHhSWAhgGygYDA6Lw+GesSfck4eHw2IwyMK2bSEHHz58GIYNpaE2jDAMH168eHH+o862WUuKMXiCQhAnSEBrB4na2nIv4CFqqpIej2OpOSNjeJTDgha2UmDJf5p7cccAyhqHp70vTDv5CR8DKeyCcIiwJuBNSwAI/r3OWtetbMVLo6WKD5ZGv8e3xSgO27YNJFvK/kun7T1+goiYgCT9aZIAzC/zRBI8JwDaH5J+wtk+zsyHtnxI5lWFH9Ar96eZOXwuAXLso6L9+MBcTyQJJJi04wYVbjOjCdcAAgHU9LSTGxA8tQtFVOkTvevSqGlnZrz2deGujzC9oig8+diiMwWEnPBIXznMTLeOtkXlrO1otR7B6SM6bWHpSlparwGwbfWQYreCCNn0TiwEwJ50Fh5hdt4XCrn1TARQgVADmkSCsk8cVCTgOW2rkiQi2xxAtQpEZb6qAkqBrGK3ogrM9JWyNRwv2raAKoQ3IEsgULa2LdsjFBLovilAVlS20CqAqFxF2TM5gjsqu10bMGpwAwN0q+CZpkfZkyS9whzVmWmdEWg7ZxSShFi1gfGM2m0HcTiqhrBUlK62s6HtCJAe1QRgvLd1z0sP7RyBqHPAzsyseQdaIG0r0MJqYb53U3oVSCLQ8w/OfWWr3o4zQzIzXtPS1o3XD7SACqhA7zN95bXHQ9o+wHwEemcraj/+au5t/+Y5Fq1tk9u2ycrutgMpkNQeZJEL2oT3BTRRo/d/XcF8/z+DmQHk0/X7IvpPC5JtuW0zlysMEfOAhx2XKCL5ohxJkiNJImJFepeBAQzcb/gnbGZ7soG5eR7OiOg/BUSSHEnSidfCyBhxqsiP6WcOPEuS5Ei2bVvNCRaGE3YrV2vRxPP/v21VpJuqGIhcE7pH9B8CJMlWk+XxETHuvXcJgccKHJSpolzbtti2GaYDdUBlmv7LSwSBuHe/R2cGRPSfFiTZdtvmkggYuiTw7jHyEDice4HkR1IkSZIkwVj+YO+tcNP8RvQfDuM2kqTdvSc69A3mQqO6tcIF/fhKr1fGKy+Gsf/r3zkOlCJOK0TJfxd4Em2Ioajrq4jmv/49g6iMpaPzwlMFFQ4h/o3gSXFxjXpJ8h1Hhub9vwM8zZzQar4OaiQHNwT+I/994ElFlhLR1JGVI8R/F3ima0pCExR6rUX03wKeY2yjna9p3VEBRL88PduEeEPyd2+TQsEoxZP3A751pozW1swi2QKF9a39dC4cM6E3gMCT9wO4dVqcNSnGQpJ8WTKwn85jO5E8StCByE1pzwJP3g/41hnWsxwVs8plLEf6RTDF2E5nq0tzEC+2A6uf2iRP3g/01tlbs5EJGyiG0XNGs5676WwXDp10MR1wMK//GCXN83F4P3Bbp2/GT49hDuguL1r5SCG20tlKCA30SG4zzfM8zuH9QG6djtpvkLB8GJ81knQLsY/OVjJMB/FiO3Dj3NOeyRTP54b3A7Z1RsSMWmzeuMhIvY1tdLYezcRGtgPrPyjBc9XwfoC2TueNhSPpjvHoomCG7KIzLLnVxNUK3g92zYlWLxjEHoV4LGmxs4UIKqEYL4gl2URnK/Bcwf4AxsXOc3g/2DRnHxwHtJRQDMd1mmJIaD4Ed26ms71NGu8EnOUkGng/2DznorVYERYJn1EaMQyS9IyLGkFuKYifU3r0eOm3+T3H5gatkJTXgeP1NZ5iOfm593biLHB45mygMPtawWEpA8bCogYzRzUnOklhYgWTovyeA3PLwXP9jwWnnPzcOzt7jmGQhbWphHzpEQKGZ1CDrRJezgF7OIdxsBVPwyKxaOb3nJRb4OoiibQdcOt9NJ5AOfm5d3UGs2H0rVJSpk1hFreetHKaSkfMlfgUeLQAs3ccEvk9p+TWhhEPQkfsgDjJx4uk8DxUOfm593TCmCwlFSISdpymk9OrdYal0vERDV7Ny+85ITfnJuGItz6PQOGJlpOfe0cnzPgUF3uVFmH49TrOldst1WvA9cNPgUd0JtTD4mQrXn7PAbmVz7vBy8nPvZnTAdayJEWLkVwUH6dX7QYG4TFUOxLRYgI6XsXjefK5VZB3w5cTf+6tnBEWMTRbX5AwaJ2cNKpY7R7LqXbUaIUsPE88tyrybvhy4s+9izOpE03jUXKaiifQ9eECCMputO3zew7IrXzeDV5Ofu61nDGolJWqpLIAKs4YIqZGfIKK95jSSNTxyO85ILfyeTd4Ofm5N3N6RLTWjv3sbZwLjO7UaTQHTowM6wDG0LzJ7zkgt/J5N3g5+bkXdNov4shWFBo5aRdrTLVTWFE2dY4k6IhAT/I8/dzK593w5cSfezunIWNJhtHISbtXj6SpfRIpVDDLw84H8Tz93CrII8DLiT/3fs4Ce0OcNQGYNCfN2p1ax57M7+nn9gW0dJ383As6z9cj2sK8oiDkgo4zfOYF7JK/URgjr/J7+rkB3E28Tn7uBZ32e0DCZx70ZI4oiyvN5Oi+yu/p5/YFcDfpOvm5N3T67wGJ1byRUM9G0xyWafxX+T313BDuJlwnP/eGzt+e+M6nbemW5JcBBmgYzDZOYW4Vi/jf5/f0c/siuJtsnfzcKzob7AFJqHxr2s3v6ef2ZXA30Tr5uVd02u8BKd/wuf3bvgXuJlonP/eKTvu9IfXh5/YtcDdPtk5+7g2d5ntCFMczizrrXPJ7buid0ev0oO6MX8EGiaGarXPheQ50Z/g6vac741UngRmllS48z4HuDF+n53RnVt7kH22yxiW/54reGbxOb+rOfCRsrbfTZCJxF/DL7/l5vDN+7g2dBfaEfKREog262d4dc0G//J5remfgOr2oO/MxyHzsTQ+HTzJKERfjl99zU++MWqcndWc+krRf7+bXOt/F+uX33NU7Y9bpZd0Zrt45nt9zsTuj1elp3ZnQJ2EdMGHaHRfL77nWnRHr9J7uzLq2gtJHp9YNEj86Go7YmN9zpDtD1+k93ZmotiJ4GE+7khwXy+850Z3B6/Sc7syytiLJ00LR7s3I7znRncHr9KLuDE6TtcbTiBF6fX7PHnfGz72gs8GekGHM4zkwtJffc6M7Y9dJ0J3p6oxyZ1Cehu5MXWeQO/P68WywJ4T1e+5zZ/wcCdYZ4BO2lslWDByNnGT9nvvcGTvHF3VnWL/nPnfGz5FgnRHO3PKVKskWwMjJ+j33uTN2jk/qzrB+z33ujJ0joDvT19njzvA8/dyZvs4gdwbn6efO1HUWuTM0T0B3pq4zyJ3BeQK6M22dRe4MzVPQnWnrTHJnYJ6C7kxZZ5M7w/IkdGfKOqPcGZQnoTtT1hnlzqA8Cd2Zts4md+bV4/l3bO+Y3/0/75jfvT7vGM0eMfvvSXtnSuU0zJ1x7RGz/56qd6ZZTpvcGeUeMfvvyXlnCuY0xp3x7hGz/56Sd6ZlTjvcGfceMfvviXhnquZE4s60+X9HjL6z753pm1OiO8PKf0eMvzN/vzN9cyp0Z8i6f0eMv9PS3dwZ70zfnArdGeb1bPP/jhh9Z98745+TZg+aCGdu+UqVZAuQwZN5Pdv8vyPG3xnpbgRc9870zSnRnWFWT4fRndqMsCCNywTjYAztcoS+s++d6ZsTiTtDu1hgBpu4DC8zzEiCjgj0pL/T1N3cCe9M35w43BnviZgkhINJpIwCro46m7X0nQBH0DcnDncGd2Q4Q25MmlU7Q409ufeeOpjGmzQK58ThzoQ9f+6QCwxuf5Q0ukON7f57OjoCmeaUpBV5BIVz0nBn7K5ys3AAPY0jyuJKJ+mtcbLdf09NR2OOXCMFzUWiAskUz8I5abgz7oCjs2ywfJJp7iwToJm0/56xLuBnWxEpnoVzwnBnnKOx8vwuFkm776lh3U0pFM4Jw51JGnIkI4MsMpQfAE9JR7PiRapn35ww3JnYMYz9ipAX+k5JR2Nf2K6gRbpn35w03JljjmGnSOy/p7AfmYRY61k4Jw53pn2o4rmk9ksxONyZTXBM5SajV8bQy9fic60uN5RL3IPDndlEEyZV5Rt8l9GLdazhJQ51DuP6ckO5lD003Jn1U+YavBi8UucKLOe13fctL+FGSuPack/Iha1rzNPut4U702rtlLmMV5s5JfI+P7BomuYLVdfWdt/+O5nisKTPeaxGWS93SUMq5YXYGftCII6y3TNywesq8oT7LeDO5JhxVOd1IzFS1Ut5OXb6zy9J4pNvd71eE+qaP+PDedW7MxkWo1mh101szlDKy7HTeTB3Eh58u6v1mlBXlafX7wHOzhSH5aaafgztht4cOjD2L1/lzw6cZ2eLwxLi0xg8r3bYKoZwx9uwcX7xcm1p9w6cZ2eOw7IupC0VJcyr5IhCP8eBzyXSfNLYeswZYq497d7kzpx1QoJXNckNeF7t5hr7KHg+UCZIjc2HDy/XnnYvc2cuOiH3NJrPneCXYeOB7swkT0g7PPJ5MWDo57YP9+xlNx8oVrozUzwhHavb83kR6RmJyxAh8WpL5abEB6rBUndmhCek3fCuwItKEty3VW4+VC/XujMDPCF1n5CnUGvze4ygu8Hr0K9Ly3avO+N7Qpzi/4TXoSxZ8XQrtOB5VPst6G6qA6kDUZfN5kPMU9d9p+eB73VnfE/I09t9eSusDB2KdJKOvKWO82nO75Fvd6y7qa9Jvw791+HbGfPSeX6FNMhcd2aAJ+T6SilvhSXpTACeH27Jk9ieZpI68jzK/RZ0N9XlFRF1AF7HpvPhylMZ4gbmujO8J6TkaKxYrZYqdTufjjgPctGA0t3UtMGNqcPQusQtmua6M7wnZAlsq16E54ew8HKcyZOY3yPPbkN3I72yBzQ4XkwdsLp8gufDXuL57+3a79+Ne1juuzPfd2F4u3jdCMDzg3QSLOzPkgp4NPut6m7yZ2RcHfp1cezElnyvOw5Z/z13kUryEN7mujO/rH7+QOHwpRIpVDDZcs4H0XYFuhRo0Od5uiXbk9r5COtAM8+j2G9Zd5NegwPWoV8X3U+wJV95vyGrziNy352ZJm5hFSs5TrehPc0iSZHn0V53M6AO4+si75fK2k+V7t4ZMu95Qu4bt6umY0KF0kkK7fE8WMS5m081ZF+XUYfRdVl/n4Pw3hmSOc8Tcje8MzWTZhMnEefBv24HuJtyuhegDkBdKvaO03fdO7NCvvOE3HfeO1O0bcU5TIPJmfk91HqW+/2W4G6q6YqAOgB1qQC4P5O/d2aUuIUV7Z9gSizNsCmJPI/FarF4NdkM7mZEHfp1KYfn4312ILB3ZpS4hfGzD4QnYaGFxA7oxPOQVovd70dyJ7ibdiPr0K8L6ydb5HEZTXYmf+/MKHELS5l93O8kToQJ02FJPA9ex+PqboTFq0O/LnztVcxDP840p+e6d4ZH1zuzmUGEJ2k2IYks4MHbfYW7URauDv26JNRexTwyHmg8984oySwamlxwu7J1JHkOkbvRcnfMRWudHxTeO+OPkOY4zzePC20XnEQdSZ5jpncmm7tXLs+6Grp/fPfOrLWiA9icY3Kh7eJ7sY4kzzHYOxPL3SuXr56aAPHDHeXHlPfO2Nxm/+gch0vNO4NB0pHkOaZ6Z5K5O+XyldByPYu9M5XjFlb1zqTpSPIcsHeGyV0pl2jMeW8/jut75POu8dg7UzhuYZB3JuSh60jyHNO9M4ncbXJRdDaXKcgpVfbOtI9b2L8PX2Mg6kgCHfO9M3a+C+Ui6Gz2kep7jPOuUdk70zxuYf8+fI2BrCPJc4z3zgRy18lF0dnQPZW9M7PPW1irkbXkkeQ5JO5Gyd3HofYTMct+Z8TzFlb3zsR+o0KFkNnZneewvTNG7kK5fHVJeZhhvzP0eQsDvDMFjiTPwXtngNx1ctF1NiaPVTvDfmd2OW9hkbyS3NKKc5iGkjO358F7Z4DclXLJ70/3JKW9HMvanRTPdfXP8YhQ3DtTQx5JnkPjboTcfRyYzsbnscR0T9LrXuW8ha0nwpHkOYZ7Zx4yd6NcLqNTO9M9Sa97l/MWloPrHEmeY7535v65++Qi62xsHuukepK0e8e0tQezoI5s0GO+d2Y9dyFHwQeiPUnOrztZmDP5SNxNOHdfRwnwniTk3hlm9vS8M/twJZdyKnE3+dyFHZnVPhf4niTRO0Pm9dS8MxtxJVdzanA36dx9HXJcAVDdje9JEr0zzOsJemf24Uou5lThbvK5CzsyexfwniTk3hnm9Sx4Z/blTOLeGZCz0XU8g6vvETDfk8TPI8bzzizElbydU5G7iefu6yhQ7zPfk+R7PDjvzEJcyZWcWtxNPHdhhxRXAFh3M9+T9Ip7POr39L0ph9yVGneTz93XUaDeh/ckbTvvGGK5Yn2upM65m0Luvg6g6Z4k394xjKP+Fvhcfed1vuP3RnA3hdx9HX3uhvckKfaOoVudcyVxp87dNHL3dfS5G92T5Ns7BnLTy5yPr8fIcz6OgOOssdzNw8h3X4fA3eCeJN3eMSk6k4bnbh7Xr+R893UA3I3tScrvHUN6Z9zOldwqd7PfKer57usQuBvak5TfO4b0zvicKznPqc/d8Pnu6xC4G9qTJN87Zr8P2jobAUecT33uJp67r8P4HCfbk2TcO+Z2dTfpnG+AB9F0T1Kh3jE+50guPQqNuyyfc/9zNw/vSWrTO+b3rorx3pm2V+cV0N08vCepT++Y9V4V3b0z2K908rn/uZvnwT1JhXrHiO1V8cZdJudz/3M3z/P9zPUkrZ5JsMfD885sdFX+exnAuMvkfL4BHsJxn+f7eWBPUp/eMXtcFSufWuMus3U2L4Duhr/OMk16x8yau7mQU3/cZXI+1z93w19nGeHeMR+Vu2nl7O+QvDNfc5KK9Y45nmCAy+ysznf8npM37jItn/0dlHfmi05Spd4x+5NHcpqTN+4yIZ/9HYR35riTxHg5MM6Tv6rrbSvOYRpJzty+x2lO3rjLhHz2dxDemetOkuXlIDg/L3fTyNnfIXhnrjtJDS/Ht8990vDM+O6d6Xt1/B2Cd+a6k7TNef9qeGZ0984AXh1/h+Cdue4k2fOISeGZ+507C+rADp93pu7V8XeM9M7gnPF5xMS7M8LT8g+Iu5GaH8sk7wzPWZlHTLw7cz5OMtM7cy+6m3fHWdb0ztx3kjrziCl3Z+L9xPjemfl1NsZxlhW9M/edpMo8YuLdmXNPjOiduRvdzdvjLCt6Z+47SZXz/hXvztTnHfOBPTNvj7NslHfmwO4nlXnElLszSqt7Z5R89nWox1lW/cr7TlJ+HjH57kz8pBrgndE/ZyMfZ9kk7wzPmZ9HTL47IyTfO1PinM39D3H7a4l5x8TnEQPgzvTnHaPizJj2jonPIwbAnTlvvnem5jkb0d4xaS+HgDvTn3cMgzNzyJ3hOdNeDgB3Jt4yoO6dOXCdFXLKrE17x4S9HAbuzHP4s8Of+NxNrXM2l9wZnDPs5SBwZ37E8euCe2eInDeoU+hp0d4xYS8HgDujTOJ7Z2qdsznlzpCcGch3Z4QZ0QDvzHnOvg6sb9o7Ju7l+H7uZN11KfPFnSxvrgBng0G1d4w/jxjh3jHnbKeen93qbKC9+/u5+v1MgmrvmLyXw/fOTPeyLBZn/K3S7ue5I088onf/tJxH9DNI2H5mVHvHxL0c/96dEe4dEw2GW5lJPFTvjJyz38+rHXTPtXdM2stxx51JPtFfVwN7Z9ic/X7GdsQ8M6K9Y/jrsO/bO4ZfMoK9M2zOfj8XdnAd394x/HXYF+4dgy8Z0d4ZNOcB/QwnYfYzI9s7Rr8O+8K9Y4LEtLB3hs3Z7yf1QMvPHZPzcuzKnWw+V+P7313m95OCee8Y/DrsK/eOScUvXu9+M2e/n7Edb3M34r1j8HnEvAj3jkno4PfOgDn7/YzteJu7Ee8dw1+Hfd/eMVQ9jKdX/XlnwJz9fkp2eOu8J4nmjHs5Drgz87kUf7VgbXk3iXP2+xn/IMjdPHlPEs25z3XYn+9lCWZf3mrBNJ7Quz9xzvl+5tslcjd5TxLNqV+HfePeMfzs69l7ZxLnzPdTgMjd5D1JNOcfx7xjlNlX7hu+d38/1wn9bPBAeU8SzrnPvGNwLiTLDl2mbmomNpxCNB0n6eHzYCe1BaID8p4kmBPZc94xiIfGX8um8OwuE0UIYyA9gB7Yp1WC+rqbvCcJ54Q3tsejetzJBK4mslPifTC1WFoQSkh6AD0wKrsZ3M386yDzum/b4xHwupP1uZqYh8Czc6quxKe6F1bqch4j6XBmdMXyhCrrbvKeJJgT8T0eME/fy8LbcYA6/NREIEQ5j5i0m2OCNSlQJ0QB4G7GXweZwGbzjkncMa5mS3Z0cHfhQl6P0VPD7qIua/orMHfhep+8J4nn3G/eMZcfAVyNv5+XCe6Fb3NDHZvOn5E5vLRW4G7yniSe8xX3ePCdee6lztUA+3k5dFPdHB9HDB4SdUJ1633SniSgU6d3zAAOhbejMWvfv9r4RSLJch4r1BkvB2xx6A5CvpJ18NUVaU8S0PmJmVncZ4wn0n3/2/DOAfNw4e0I/3IfRQuZPeZG07HGCcWj49f3Duex3m4t60kiOu/fs/Gc/JhtoHcG5G54O6bqWD8rGjk8moldnRMyrqMMz2OvVJ1JTxLS+fLwPR5054B55xf60TWXezKKyHIe63u5lwP+8MImzgmJqCSWKuicJ2mQzpeH7/GAO0dwKLwdE+HG6Iin/B4zY7nnb1w8zXAdZOR6x9hciLwBW9yzmcjAL4pRzmP9rOjkiLHHg0jPdN2TNMN1PnSPx0jvjI8+V+Pv56VrELc+A2U84rmimcO2wu7rcR5gV/J+wRzXQUavd4zMhagbsAk8uyns90FqaCGeK5o5nkKLHdc7C8vv7HN4Z5nrDtPnbBQeznEF1Wz0iueKYo574oEF596cJMdUcWvuc91hLJ1Nidu5GGrarWL4FyDkpWu6c29OtiNe3J35Ol4evseD7RRa3iND6HQm+tChBo+R+y6gsOwb9vuce3PSHfF1x5z4OnR7xwC8TJ1NhdtZGiN13GJOY+YwmQSHc29OvuNwnTIHb8C2dwzBK19nE/doLqqYMzoOAV1z7s3JdxyuU+bYDSDnPHCPx2zvDMPrKmfT4HacNwXnHUMn54N47s3JdxyvU+bcDZj2joF45T0ygE5neQObdIsubA0Nm6h27s3Jd5xfp8w8R5/rDmPvR6bA7UwXsjTTfjtGx3NvTr7jeJ0L527g81x3mD5n4zF3c+7NyXdsn/3mHZP3pPQ5G4+5m3NvTrpjCEQ9Hhfdmbwnpc/ZeMzdnHtz8h17wFCPh7HfGc7Lkud2QOZuzr058Y73SUiq3WoHAmmPB9xJfEGfs/GYuzn35uQ79oC0xwPuJNpFzgbh6TF3c+7NyXfY/+6Y2+3A6057POhOoV33yPg8PeZuzr058Q7humPmOV5xjwfeyXlZ3jh65PMEmbs59+akO4Trjrk9jwLn8eA7sevwMpq7wW/du4RdJ2wobbcD0z1GwbybP41bgfN48J3XOZn8uMj66W58dGkOHdmwI7fbgbCb955kubwbr3lcdd6/YJ/rsH+dk0l7aaZyN956+h7kEU/muIhyeTdrPdpw5D0efOd1Tibvpemnu4l/j+v2sf2tXN7NdQ6K4sXznGuIzHs86E7x6Ya6m8hxknuA7W/l8m6uvy0d5MXznKpl3uOBd4a9M3eiDeZuYLMWuf03Tn8rl3fz1j8ZLBg8r1o/BMS/zzbHkfd48J3XvTNxL81M7sZtzO0D/a0cU2Q6o/yNqdmPdRv/vvQkR97jwXcmvTN36GFL3Y1/XPE+NG6eSiqXd9PioJy22I9ovxwbjrzHA+4s+Z2eupt9acXpb1lvbm7SOAI6I+/x4DvruzXV3bh5K/1h91vVe94ZnlcBO77qnvIeD7yzYCqgu0nFPuw3mQz1nneG55Vuh34cZ0GOvMcD66zbttXdeOdtGWB0g6f9rPe8MzyvCnZ0/yLv8WA6aw/11d3Y81BM8EDNpQx75IYdx1mQI+/xiHGW2p0t8eyru7lnCo9zTp4j9LdAubybf78cE+Y9HlRn5dqFlrobAxnyVuLq9TwH9renKnTemRWO82LHcRbkyHs8qM66tQt9dTcIm46x3XGOH7ndkyx33pkX5IF2v+WfR4vP3XRsZvixsnk3rwfO/3HewVFHnoX0EOJxmtnczeq8lZAflXdZKJ5385DtLL/6yuukhsC5x8PAIUqs4FBYdSA+TjOWu8m434f/o/J+5lY27+bJD2Q7y6++8jop9zjOMhxHj8caGxAXb3omXwGSzgbkbqrJW7mJzDmwrfJM7ubh5kvAC8mnZF3VCD929HissYFqOgtEZwNyN/XmrbTV3SSeh82QX+hY/3P0eCyxgRA3RfMsIjx0nQ3J3dSRt6I1XtSMEuJuYB0Ukk/JuqoROudejniHoPyvcRbhed3sc7Z4nGYmd1Msb8XjVBTuhtdBXc+Jt8NuG9b/HD83eo0NxO+Ui+ZZfLVOZ8s6G5K7KZW3wnIqob+VzbvBdVBAPuF2jPNAA6FUuZz3bwPHafY/jbvhlw2XlAfgOM1Q7qbavJWZ3E21fVp6knj+c45jHiTpLJyW0Nmg3E3NeSsDuZvqM7vECPA4znIcRy/BFhvQkNsHdDYsd1Nv3spE7qb5uPDgm23HOi1PZyGD0Nn88XI3N5SOHo89NvDO0YLL6LTvEDobmbvZBSrpblpvj0jnuUcaOPd45DvOjxZQOgvnx65zNj53k38OunzezfxPO9vnc87PPR7xjri2oP+N7OM0G8DdbJ8CuhuPg+LtWO/2WbDX89XezXU3l6lrwnvEXFhMhfNuLtTp9p5F/vx0/gaqYmXXUO5GDfN7xDQsnXdzvU7Jf9355C6wyC0hab1HZNc47gZvU36PmNDbyp535mqdjMUdWUdUAxPJ7XbgHSs9+GZWoV3TuBt8kd87JvzogLJ5N4V59u8SOqJtYD4XNgnizZi7nMUzhXOiEaO4m3353TFl826u12ncJhfgwtz3M5Q4meUro/NG2JN+DeFuoih8Kpt3c7lO5gq0T8AVbpvjtQAXpr5frsnJYJyFYNck7mZXfndM4byb/nk4qzejM3laG+7AP4vcLg8m6ywK2TWIu9mX3x1TNu+mfh7O6tUAjX8f8iTQe9Vd5zNBd+Oz77LicQpghRGvED6VdRbdfgm6G599l/nltPaTcrqcPRb+mvf5UU4r6DZinQU4N/ul6G589l3ml5Ots+lzRgN1tlkruo3k6+BY6xeguwE5d4xdTrbOBuSMBN3JiGF94h0AOllvB8TJJF9nzVq/CN2Nx7ljzHJqMNqDEseBJHDOiTr+QPtt0oruxmffZX65mDocsj3rs6w4DizOc/GcrLejx8nY26Naiv0SdDc++y7Lj8MZed8biePA9XkunnO7byT/GYFmv0LdjdC+y9xyQmpzyDsXx4Ef58CcI6N83toLdt4xfrm01OWwcRwAOldZQnxi7Xek2a9f3j5I546Jy4Xncd0r8xQXHMcBnnP08Z6jzHbirZ6M/Y7U+hW/nRc6d0x2nMuue2WyeLFxHAA5h/rC2eqJkljBU/h2nujcMflxLrvulXmKi43jANDJHe8B9KrHvlHr1yt23jFxufA8yKfZOA6QnBONZoH06wfRuWPicsF5XPfK5PBi4zgAdGrHewC96rG22C/hnbjPuWP8csnX5TzDRcdxgOa84QeK34mHnjvG5W7ydTnPcNFxHOA51+PUBnho/OZuBnI5dBwHgM5znjnVYYwe4KHxmrvhedS4k3T/9wTPMeOJd875A+g8/3yNXIc8bHhojrdZgdfcDc+jPug4DhCde3yOEwls/QLqbkJcTl1/CsdxgOjcZSl93F0GvOZuEniIEqtqwMZxAOnc5lG3ep/HOcdr7obnkXakQPaf10TjOIB07vE559WPu2uRBF2I39xNn8vJ4EXHcYDn3NurUVvFwy+g7qbO5aTwguM4AHR+vhZvGMc3131f7P8F7zOzdlC8fZ3SQC6HjuMAzdkGzLi8TA8NoPO57g3j/i+47q2/djC843KJdTgelwPwwOM4wHMePR5bbCB+u9zmbmIo6zVMnU8CLeSf1z5/XGf14twclzvCA4/jAM+53LjLzrkb0EPj6XwiPuzz2NeTU+6xDsfjcggecBwHgM51xl3G627aHpobvs9Gj9B1kMlZTCDjOEB0Hj0ea2zAeOfseWjuE3f32E9IoQ4nn0facjUUxwGo8+jxWGMDgu7iKnfT9dDcZbq7xz6KqnFuxhsw7spc5/Fzo9fYQLzk8vYa4RZuMt3dYz8BsQ6nzuXwiYu7Mti5TRNGl8a5ScTnsT/PdZDJ+9MB5/hxHKA6N24/7n9QzT+P/fzztBnH5fjXXRmI4wDSOQ+K6m5uvT3xeeyPcx1kcjpsHAeAzrzHg+5kMGL9uBP457HPb+kR63A4Lgfhwcbx+TlON04Esz0eqaA9N49z9p2M8M9jn99tcqzD8bgcggcbx+fnON04EeQ9HnwnMXv58TTzB3qD3aPs8M9j37QjaTjEOhyPyyF4sHF8fo7TjRNB3uPBd8azF4W7KfCNbx5+fR3+eexzdjwj1uG0uZycSdg4Pj/H6caJIO/xwDvj2cscD3T98Ovr8M9jH7EjGoh0OAV4ZLR0HJ+f4bTjRJD3eOCdY9X7vM9MIYfY3Oks6U62A7DuZgSXUz5O0ECcCPIeD76T0N1AXwbh+9ddrI9Dw1n6SWfJdoDX3dBcjuE/xeP+7MeJIO/x4Dtrn3eK0ud1K30cEr6KhGjdzQQu5/15VDvuz36cCPIeD7zT1d2AqwTdSh3HU3o44HU3OJeDD6wfv+A8gTgR5D0eeGf9804JkaBbaeQ40TuJ810kzrzuhuZy7BvWj19wnkCcCPIeD7yzuO5G+cKoQTF0K30cT5m8zwL/ILmAHTjbupsGPJKoHfdnIE4E0z0eSqp+3inKfmejE/YEj/XrLtbHIYy+E7z6fAcCZ1x3M4DLqR8naD9OBHmPB9/J6W6YlVPjIetW6jgkfP4NitDe57szr7sZwOW80X78xvO040SQ93jgnf3ieFzgVvo4pM7n0PQzftKZ193wXA7vx/3meVaLu/IF6cyZhPHcNLiVNo4An2qT8Lobnsvh/bjnee5dK+7Kl+E7DzaIeG4q3EofR3ycY+cr/iSRxA6ced2NzuXwftyT57n3NuNEkPd4kJ0ghqkI4riL9XFExzmmd0DdDc/l8H7cc5e7T2PyHg+8s1nqcCttHNLoWHhguhucy+H9uF8od5/GTPB41Iy78hjPjaRbqeMQcMXzT2eSNALPfU53M4HLqR4naP86dOY9HnBnXPtijZjjuQnjLnZDPCTIoiR8XY3P5bB+jLA8iWaCxyP5vrscQEkcxV3shngoiAatuxnA5eB+HGB5Esh7PPjOUeJ8/CI04+hueD/ud7n7NCbv8eA7Z9Gl9Dq/mxGHhtDd8H78hvNcj3nazjMy4sY9HgHOaXQpvc7uZsY0ge6G9+M3lOcaPzxVkFKKuOQ9HnTnXLoUaE9sBdYi+naRXGk8R9DdnFM2TtBhu96aYHRd8h4PvHMsXYrhut+5alRT+XaxXBjPaXQ3uB+bEYzl6V+HzrzHg++cS5eiv/CbvNC4AVzg24VypfGMdTT1ecgvJJXjBO1fh868x4PvnEeXUmFG8oZkhuNPn2QN/oyM5eJ5DqG7aXDdLf3r0Jn3ePCd/XUp5e4TZf6+SvbtIrl4nlPobhpcd0v/OnTmPR6VeW7FuVQ5ToHNvR7rcDeH3ndLvco07/Goz3M2XYqNbe0np9hCu4vxYniuw90ceN8t/evQmfd41Oc5ni5FcOqQF7SfnOwS2l2PF8BzH+5GUuXXCdq/Dp2Ml8Pgyds1mi5FdHOCV3sd2V2PF8FzG+7m39/HPcncnv516LS8HBpP2q6NOJeycRJb1LO2EHejqv+7byL70pF4vncaXg46jsq8XQPpUqpOuGjbhrv51/cxPmT3fKrx0Xk2vBx0HJVxu9bhUjLalCdn0y/bhrv59/cxSdb2/2lMwcuBx1EZt2shLuX+H2g6dyPUu/5bjxvA+Wrvu9XhvIT3Xf8ox3mWz6vSWF3OJ8fPD59HnP+ZnD0PDYoz7sye9b7rZ1pPhxnrPHxe2jjR3I2mRbuA/LB5xPkfyNHz0NC44c7sPet91++/2gFdO+IZ6DzyeRVW7oBil58fHg8t/xM5eh4a2E+OuDN73Puu/3HOdooO5Or2jeC40OaVfubrakA/OeTO7GHvu37plTWgwXH5SwYYL9CTY+py9PxIx93sT5+rAf3kkjuzh73v+vvMyPQlDpyXNk40QJeTkh+Hyu9af/pcDe4nHr3rT3AuNJewJMLzWmGcaJ+kDIJLYA2Owwz3E5De9d91vU9qPepVZbHBPJzy5x3zdnBOz8uhMfKK8X7N4kxO1OuGCrfzt3oPj8XjPT6e+dTnang/4Z8nPKfn5fD2+CBp78wkzuTMHMQfmDdONAnv/wCPxYP4WIA+V4P7CUfv+kdxJgfym+g40Xqj3XGY4X4i2rv+24gT8gTAVnOWuZqE0Ri961+gPVJ4seNES8GfJb1XawOpPJDVnABXAyea3vW33YCN5zVunGgeGFpvbcAjri3jORweHL3rn7OAv3eJ+UadQdeWEVwN/VAevevXuZA8x7QGa0CVDURaGaYcldakd/0PbysqlJeoC8lzcONEazAJr7PxX8dvf2+Q3vX7OheMl7yflDwHOE60BnB1NvO9MyC969c4GEkXkufgxonWoGPqbBbwznj0rn8CF5LnqI8TrSHGKcfwFRmjd/0iB6PoQvIc7jjR5OM+XppXR6GV6F2/y8Gs96TEOehxolnfKA9LeGccetfvcjCCLiTPIY8TbVzbwjvj1bt+gAvJc1zvU7NJ6310coy/xOhdf+be50LyHNJxouWiwSQ+Of72O4/e9QfufS4kzxEfJ1pO/U+v7aJ9cvzdh0fv+tGlFecwjSRnbs8DOW9mDbG+d5zkHH93HTx61z/Bk5Ln0OJmllL/0wjLb/abbxyxOf7uOnj0rp/jYG7ak5LnEONmNpru5vqb/dbxme+d+bdO0iuwn3S8HAzP4xGhdL9EDiZ+npQ8R3ScPwtUiBvA2R+Um9tPD4/e9ZMcDGk28YhsN+fhfIzAHBDIDaR3/Rhn4+S4fPm66G6ABqR3/d64wPbH44oicTmLmrux7fboXX/vizGdzY7k4aTpbuKt9ormbly7RXrX39qko7PZIY/kXrjVXtLcjWt3YO/6Ze9MjLPZHY9nVNLdvP/DX+CxdFzhDc7duKMDe9c/zzsT6zyEHE+dSvU+f6ksBM7duCjsXf8878z952wszuEkxuWsNUJyBXDfSXrxHo9x3hlAZ2N+Dud0R0qufvLoXT/I2fg4vHZ1ri3G15X4Uvckgd4ZuPOsfWpjy470W+Bz9Z3TPo7DeTOjGqsKcT5347fzPUlfdzwGeGcAnY2NY/FjPe5mAPh1cdHXu37cO6O3lzkfX4+R53wcI8fTWPfCfO7GtZujd/0kZ+PjqHloLHzzPf+qWpovnP8YdO3w6+LazdG7fnJcYD6O2nGfRjj/Meja4dfFt/t5aE/Syv/fJeej1f+HlotJGmB+XYn9zkz3JM3pXQw3LjAhR1qfxDkatYHPCXK76Z6kuN7FCDla4E+RAK5MBNY8NNh1RDwKB/au/5Q70+/cDQevqQUtgCUPEX4dixPYu/5r7ozsuZu74p1B8O78s4nzOxXAr2NpAnvXP8070+7cjY5rIte0/BPDcG0JfhIPz3t58OtYOq/Ko3f9Ezwzcx0aBj/qOnC9dCCF4GMJfhIPzzupMXHulLhmVGR4zfUkrZ5JH3Y8dO8MoQsRcijHfY4xdP09ryWJCSw+DsFP4mG9Ab+OpfOqAnvXP8o7o3zu5u56Z3x0TUEwzvWPPrqWeBjvRCZwNfSMLq93/aO8My3P3axe+L3GkXEt8HcTgcXHWU8KfhIPz3vBr2PxvCqP3vV/Su7mJsYptwZxNCMX/nq+WTQXkFd/g2Dwk3hYb8CvY/3UkWP0rn+GZ2aGQ9M5TwCrWqHT/Mcv//bXNYLL1fcQV8Et5LHmDG/8Ota5Ko/e9Q/wzOxwaFrnCWAFJMIf/3b++uGq+TH4mPlYgBIP9Db4dRS4qof2JPm+716AnpmJeDxPaSrnGfnrCbbDseNhWgcMfMN1rHNVB3rXD9w7Q3d+PO6mflce/nAy4efdmHVEnp7uSXrd+DxO6Htnhtbd9B5IyVz78WPYMG+4eTduHdtvxNnQu357HicJe2fy3M0ehya3ASkZnmMRCpuzB/k69tvne9dfcO/MvLob8HZVXfB1FBZ6P6mwd0b/HE6vJtd1JIPLzc/9U847JmzvzHaHhnHVKmckIM91JOtXbtdz5HnN9yTlPR58Z3pP/I46kzZnpMOJi1e3cvPzsfG6Op4k1ffdC4HeMfM5m8s5AZwRlisnfDliHhki54onyfV990Kgd8x8zuaXnOYNqFaOIxlfjv3cvacbv++P6/vuRX7vmFhXM+91ePlkcEaGXXocyfBybOe+aqGceU9Sob0zOK/+OhsrnxDOyLJLjSMZXo5U7krO/n6S684sxOFcyInhjFaUS44jGV+OkEemlXOB3jHleRbtu2zczY8jWb5uC113GH0/6XFnMngdT1BhZHZu5zl+z4lvm5kkX8d+7t7C7yc57kwGr+3n2ZzmBD5j2yXEkSxfx37uXtP3kx53huf1tEUI5zCNJWduz+M0J/7xJjrxOiq539Qd30/2uzPrczgrPP17F3Ne3a7/GFCmd8x+d+YjeGiwec8g8ONINq9uxx8DSjnT+8lkd8Zrm8+zibWce2NsAHEkm1c3MWd6PylwZ9b30IDznimgy5lWNzNnez9Z7M7g3M0eelguenh+R3/n6Qq9Y3iePr1jBB26hPiOCrHH15WMbtK9Y3ieNr1jdtFj+o5kB+/IDd2gOunNuHcMzlOod4yfA2HH71bxqLeCT6oTnoty7xiap1HvGEHH1LmRQjhnL8irn6OXS1rvmAHujE/vmB30WDg44fDQV1jV49XP0c0lp3fMfXdGqHeMniMwHRigGHBnFPV4+V6Z6usK6R1z3p0x6h3j5wiEvw1/ajiPY7hxPV5AneBctHvHcDy9esf4OaJvdvi6kvGu3kdO75gR7oxS7xg/R4AURTIJjEsy68SbS1jvmAHujFHvGD2H3QG5JLBOCXN56P1kgDvj0zvG0KGLFwnPHpcE1mlCLg++n8x3Z0QPjZ8Dj81cWrlccYevK9mQp/H95L47I9Q7xs+BhzJP3wW4y9eVLOEH4uD7yXl3xqh3jJ7jCbyIW6We24im7ics547Rc0RamV2+rmSXF3B3Znpdzv3GjWyL987I7eeNjltzNT1G7HFlvreuyn5C4874W7mtHUJ7aMbV2fi6KKKrs58IuTPyVm43OfY4NFvxmuSV+d66KvsJkztDNXscmu159XOc93RlP2FyZ6CUd87Gz7d+vPo5+kuqQFdlPyFyZ8Ahnz00rXhN8cq8ijuT2e5xaDbkNcYrI+/O3IUuZ544Kvs5vpU7gzkqVDiZneN8h5+vea52jsR2N8/lzgBpe3k2fr7GuYDcfTyYO3OkhYYdtK04h2k0ObN+Dz9f+/FSctx+YnVnau8XX+axL+ehmVlnA64WNXVnSm/HqPPYXF5Ng+WMXa6Muzvjv5fmfuKo7L+d4HVn+nrqLKiD9XvcTxyVgbcTwO7M/3nNS77fmftF3nExzgVrd+aekXncpTPhBd/vDL/CRsvZeJQ4UHSFmI/TxZ3hV9ioOScse9deIebjFHFnrBUyW6vHkXXy1yUm/zrF+DhF3Bn6hdjYGfNYt/H5LjhcpxgfJ487477wGTtlHup5lShcpxgfJ4g783rd135nqAe3dmd4XYm4M+Xfy1Fct+PjJHFnaF2JoZPrlbsOy/V1Oz5ODHdG0908rYaQdSWCTgR1Pft2++f6odzJktyZtVNbskp3Gr+Q7Xf4M7+inusncydrcWdudcbFJ+HsMSHTzHP9dO5kBe7Mvc5vwzNx5rW5foe/czfP1SZ3ssc5LzMyzhEfSD5Xj9zJnorC3Tkf/HP9fu5km90Zf+eD/qJgYwjrOfjnujd3Mr7z9TLH3Rn+H+2zf0H561BG3Mcy6zn457o3dzK8892R3J0Z95mMyr75N2+nf66DcydjO58eyt2J32cylnORuIC/r2X8cx2cOxndeYG7k77PZCw8f10gzuUL/r6W8c+VJHcye6d+Xy0bv+ANcpc9rtjP9nC/4Kd/riK5k9k78fsaxbRZhsuECfdRin+uILmT6TsF/KN5E8M/V5DcyeSdChKvC4xzHWGWH/xzBcmdTN8ZIzHOkMx5iYyhnytJ7mT2zvC+eJkAyzno50qSO5m8c0DY54qSO5m9M77fZPLiouycR+X1+zSsfK4ouZPZO+P7aDkvzsPOeSFev0/D+ucqkjuZvFO4j5b7Y/k+Deufq0juZPbOQnFRZs+jsn+uIrmT6TtDncsAk6zP3fjn6pE72cXdKehuJsDz36dh9Z1rLT6YUVrpstidkXdGOpcR6klvOedT83YQtoN/dM4al9HujLkz1sFMgOW5G/1cXf7vXog7BZ1L/3qf5bkb91x1ciezdgo6l/4PtH6fhjXP1Sd3Mmensp1nUzjbeZrnipM72Tkzvk4RU4/7OFDP9VWJO9m318Ff2TmgjkA+15cl7mTuzvngn+vIcSezvR9hMNy4pwbltHMYUEegn+vMcSejvR8L910Hf4qTzmFCyOZKcC5rdxSe6+qf4xEh0jtjez9azTxgT006TzuHCXU3vrlGfnCPcSfTr1O/z3Xz34+78c018oNbjDsZf536da6b/3y6G+FcQz8Y+Lxj/OvUbz+HEXU3M+63swF4vu6/l/F+6M9hQt3NTN3b2YbtynhndvF+yM9hRN3N68xpezvbm7XL887416lffA5z6m5ep+7tbLN2gd4Z/zr1689hRN3N1L2dbdYu0Dvjez/05zCj7qbu7WwXs+t1b+P98J/DhtyN/e0s3/nK/3ccxns//OewIXdjfzvLd87zuWihPwfDczfT+xnfCXpnfO+H/hwE92iM72d8J+id8b0fPnPocWem9zO+k/TO8N4PoTn0uDPD+xnfSXpneO+H0Bx63JnZ/YzvRL0zuvfDaA497szofsZ3ot4Z3fthNIced2Z0P+M7Ue+M7v0wmkOPOzO7n/GdonfGv079QnPocWem9zO+U/TO8N4PoTn0uDPj+1m+863jfRxmchGaQ487M76f8Z2id0b3fhjNocedGd7P+M4FvDP8//ULpzn0uDOT+xnfuYF3hv+/fmE1hx53ZnA/4ztl7wzr/RCbQ487M7+fCfeOUb0fZnPocWfm9zPf3jHUvR9mc+hxZ6b1M75zD+8M/3/9Qm0OPe7MxH7Gd6reGfjP8xVKc+hxZ0b3M75zA+8M/3/9wmgOPe7M8H7Gd5LeGfreD6M59Lgzw/sZ30l6Z+g/z1cYzaHHnRnezwScb5u+j8P416nfaA497szsfkZ2uvOOKezscWdePj/j9/tR12ngznR1LjzvGJ89JATuzBY4A/yPWMxMtmLg2MC5N2uXgTvj4pw37mQNnJu1y8Cd2QJnhH2UhSrJFqCBc7N2Gbgzu+BcAd4PSQPnZu0ycGc2w8nv96OvU8Cd2Q0nv9+Pvs4id+Ynrs9dCwF3pq0T2DumrhPAndkPZ9770dZZ5M781PW5a0HgzpR1EnvHlHUauDPb4cx7P8o6EdyZ3XDmvR9lnQjuzG44896Pts4md+Ynrs9diyJ35ievz12LIHfmJ6/PXYsgd+anrs9dCwJ3Zjecee9HW6eCO7MXzrz3o66TwZ0BOwPdmbpOCXeG6gx0Z9o6LdyZXXDmvR89nYXuzE9Sn7sWde7MT1KfuxZR7syL/bnLV9dJ4M7AnQX3ztR1Ergzu+HMez/qOgncmd1w5r0fbZ0G7gzb+Tf43hkB');
+      background-image: url('safari-bg.webp');
       background-attachment: fixed;
       background-size: cover;
       background-position: center center;
@@ -46,11 +45,13 @@
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: center;
       padding: 1.2rem 0;
     }
+    .header-inner nav { justify-self: center; }
+    .header-inner .hamburger { justify-self: end; }
     .logo {
       display: flex;
       align-items: center;
@@ -77,7 +78,7 @@
     .logo-text { display: flex; flex-direction: column; }
     .logo-title {
       font-family: 'Press Start 2P', monospace;
-      font-size: 1.4rem;
+      font-size: 1rem;
       color: var(--green-light);
       line-height: 1.2;
       letter-spacing: 1px;
@@ -255,7 +256,7 @@
     .era-badge.black-white { background: rgba(180,180,180,0.2); color: #e0e0e0; border: 1px solid rgba(180,180,180,0.3); }
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1.5rem;
     }
     .card {
@@ -279,7 +280,7 @@
     .card-set { font-size: 0.7rem; font-weight: 700; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.3rem; }
     .card-name { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 0.2rem; }
     .card-desc { font-size: 0.78rem; color: #666; margin-bottom: 1rem; line-height: 1.4; }
-    .card-footer { display: flex; align-items: center; justify-content: center; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; }
     .card-price { font-size: 1.3rem; font-weight: 800; color: var(--green-pale); }
     .card-price span { font-size: 0.85rem; font-weight: 600; }
     footer {
@@ -294,7 +295,7 @@
     }
     footer strong { color: var(--green-light); font-family: 'Press Start 2P', monospace; font-size: 0.7rem; }
     @media (max-width: 768px) {
-      .header-inner { display: flex; justify-content: center; }
+      .header-inner { display: flex; justify-content: space-between; }
       nav { display: none; }
       .hamburger { display: flex; margin-left: auto; }
       .logo-title { font-size: 0.75rem; }
@@ -309,501 +310,684 @@
   </style>
 </head>
 <body>
-<header>
-<div class="header-inner">
-<a class="logo" href="https://safarizone.eu">
-<div class="logo-icon">
-<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<path d="M50 4 A46 46 0 0 1 96 50 L4 50 A46 46 0 0 1 50 4 Z" fill="#CC0000"></path>
-<path d="M50 96 A46 46 0 0 1 4 50 L96 50 A46 46 0 0 1 50 96 Z" fill="#F5F5F5"></path>
-<circle cx="50" cy="50" fill="none" r="46" stroke="#1a1a1a" stroke-width="6"></circle>
-<line stroke="#1a1a1a" stroke-width="6" x1="4" x2="96" y1="50" y2="50"></line>
-<circle cx="50" cy="50" fill="white" r="14" stroke="#1a1a1a" stroke-width="6"></circle>
-<circle cx="50" cy="50" fill="#DDDDDD" r="6"></circle>
-</svg>
-</div>
-<div class="logo-text">
-<div class="logo-title">Safari Zone</div>
-<div class="logo-sub">Pokémon TCG</div>
-</div>
-</a>
-</div>
-</header>
-<section class="hero">
-<div class="hero-badge">POKÉMON TCG</div>
-</section>
-<div class="highlights">
-<div class="highlights-title">✨ Istaknuti proizvodi</div>
-<div class="cards-grid" style="max-width: 800px;">
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Evolving Skies</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
-<div class="card-body">
-<div class="card-set">Mega Evolution</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
-</div>
-</div>
-</div>
-</div>
-<section class="grid-section" id="katalog">
-<div class="era-block" id="sw-sh">
-<div class="era-title">Sword &amp; Shield</div>
-<div class="era-badge sw-sh">2020 – 2023</div>
-<div class="cards-grid">
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Chilling Reign</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>420,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Evolving Skies</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🎴</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Fusion Strike</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🎴</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>470,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
-<div class="card-name">Pokemon Center Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>200,00<span>/kom</span></div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Lost Origin</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>580,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📦</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Lost Origin</div>
-<div class="card-name">Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff59d);">⭐</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Charizard</div>
-<div class="card-name">Ultra-Premium Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎴</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Silver Tempest</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⭐</div>
-<div class="card-body">
-<div class="card-set">Sword &amp; Shield – Celebrations</div>
-<div class="card-name">Ultra-Premium Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>800,00</div></div>
-</div>
-</div>
-</div>
-</div>
-<div class="era-block" id="sc-vi">
-<div class="era-title">Scarlet &amp; Violet</div>
-<div class="era-badge sc-vi">2023 – 2025</div>
-<div class="cards-grid">
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Paldea Evolved</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>300,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>270,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎁</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – 151</div>
-<div class="card-name">Booster Bundle Display</div>
-<div class="card-footer"><div class="card-price"><span>€</span>1300,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – 151</div>
-<div class="card-name">Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>350,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">⭐</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – 151</div>
-<div class="card-name">Ultra-Premium Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>530,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
-<div class="card-name">Elite Trainer Box Case</div>
-<div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-<div class="card-name">PC ETB – Iron Leaves</div>
-<div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
-<div class="card-name">PC ETB – Walking Wake</div>
-<div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Twilight Masquerade</div>
-<div class="card-name">Pokemon Center Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
-<div class="card-name">Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>60,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #4db6ac);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
-<div class="card-name">Pokemon Center Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffee58);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff59d);">📦</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
-<div class="card-name">Pokemon Center Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f06292);">🎴</div>
-<div class="card-body">
-<div class="card-set">Scarlet &amp; Violet – Surging Sparks</div>
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>215,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">🎁</div>
-<div class="card-body">
-<div class="card-name">Booster Bundle</div>
-<div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">🎁</div>
-<div class="card-body">
-<div class="card-name">Booster Bundle Display</div>
-<div class="card-footer"><div class="card-price"><span>€</span>900,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
-<div class="card-body">
-<div class="card-name">Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>160,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #b39ddb);">📦</div>
-<div class="card-body">
-<div class="card-name">Pokemon Center Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>400,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">⭐</div>
-<div class="card-body">
-<div class="card-name">Super-Premium Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #81c784);">⭐</div>
-<div class="card-body">
-<div class="card-name">Premium Figure Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
-<div class="card-body">
-<div class="card-name">Mini Tin Display</div>
-<div class="card-footer"><div class="card-price"><span>€</span>165,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
-<div class="card-body">
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #b2ebf2, #4dd0e1);">🎴</div>
-<div class="card-body">
-<div class="card-name">Booster Box Case</div>
-<div class="card-footer"><div class="card-price"><span>€</span>1050,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎴</div>
-<div class="card-body">
-<div class="card-name">Enhanced Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>235,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">🎴</div>
-<div class="card-body">
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>450,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ff9800);">🎴</div>
-<div class="card-body">
-<div class="card-name">Booster Box Case</div>
-<div class="card-footer"><div class="card-price"><span>€</span>3000,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎁</div>
-<div class="card-body">
-<div class="card-set">Destined Rivals – Black Bolt</div>
-<div class="card-name">Booster Bundle</div>
-<div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">📦</div>
-<div class="card-body">
-<div class="card-set">Destined Rivals – Black Bolt</div>
-<div class="card-name">Elite Trainer Box Case</div>
-<div class="card-footer"><div class="card-price"><span>€</span>770,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #f5f5f5, #bdbdbd);">🎁</div>
-<div class="card-body">
-<div class="card-set">Destined Rivals – White Flare</div>
-<div class="card-name">Booster Bundle</div>
-<div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fafafa, #e0e0e0);">📦</div>
-<div class="card-body">
-<div class="card-set">Destined Rivals – White Flare</div>
-<div class="card-name">Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>70,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #eceff1, #90a4ae);">📦</div>
-<div class="card-body">
-<div class="card-set">Destined Rivals – White Flare</div>
-<div class="card-name">Elite Trainer Box Case</div>
-<div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁</div>
-<div class="card-body">
-<div class="card-name">Unova Victini Illustration Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>35,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎴</div>
-<div class="card-body">
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>225,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">🎴</div>
-<div class="card-body">
-<div class="card-name">Booster Box Case</div>
-<div class="card-footer"><div class="card-price"><span>€</span>1400,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ba68c8);">📦</div>
-<div class="card-body">
-<div class="card-name">Elite Trainer Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
-</div>
-</div><div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #e91e63);">🎁</div>
-<div class="card-body">
-<div class="card-name">Booster Bundle</div>
-<div class="card-footer"><div class="card-price"><span>€</span>43,00</div></div>
-</div>
-</div></div>
-</div>
+  <header>
+    <div class="header-inner">
+      <a href="https://safarizone.eu" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 4 A46 46 0 0 1 96 50 L4 50 A46 46 0 0 1 50 4 Z" fill="#CC0000"/>
+            <path d="M50 96 A46 46 0 0 1 4 50 L96 50 A46 46 0 0 1 50 96 Z" fill="#F5F5F5"/>
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#1a1a1a" stroke-width="6"/>
+            <line x1="4" y1="50" x2="96" y2="50" stroke="#1a1a1a" stroke-width="6"/>
+            <circle cx="50" cy="50" r="14" fill="white" stroke="#1a1a1a" stroke-width="6"/>
+            <circle cx="50" cy="50" r="6" fill="#DDDDDD"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-title">Safari Zone</div>
+          <div class="logo-sub">Pokémon TCG</div>
+        </div>
+      </a>
+      <nav>
+        <div class="nav-item">
+          <button>Proizvodi</button>
+          <div class="dropdown"><div class="dropdown-inner">
+            <a href="#katalog">Booster Box</a>
+            <a href="#katalog">Elite Trainer Box</a>
+            <a href="#katalog">Pokemon Center Elite Trainer Box</a>
+            <a href="#katalog">Booster Bundle</a>
+            <a href="#katalog">Premium Collection</a>
+            <a href="#katalog">Ostalo</a>
+          </div></div>
+        </div>
+        <div class="nav-item">
+          <button>Era</button>
+          <div class="dropdown"><div class="dropdown-inner">
+            <a href="#sw-sh">Sword &amp; Shield</a>
+            <a href="#sc-vi">Scarlet &amp; Violet</a>
+            <a href="#mega">Mega Evolution</a>
+          </div></div>
+        </div>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-section">Proizvodi</div>
+      <a href="#katalog" onclick="closeMobileMenu()">Booster Box</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Elite Trainer Box</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Pokemon Center Elite Trainer Box</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Booster Bundle</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Premium Collection</a>
+      <a href="#katalog" onclick="closeMobileMenu()">Ostalo</a>
+      <div class="mobile-menu-section">Era</div>
+      <a href="#sw-sh" onclick="closeMobileMenu()">Sword &amp; Shield</a>
+      <a href="#sc-vi" onclick="closeMobileMenu()">Scarlet &amp; Violet</a>
+      <a href="#mega" onclick="closeMobileMenu()">Mega Evolution</a>
+    </div>
+  </header>
 
+  <section class="hero">
+    <div class="hero-badge">POKÉMON TCG</div>
+  </section>
 
+  <div class="highlights">
+    <div class="highlights-title">✨ Istaknuti proizvodi</div>
+    <div class="cards-grid" style="max-width: 800px;">
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
+        <div class="card-body">
+          <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
+          <div class="card-name">Booster Box</div>
 
+          <div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
+        <div class="card-body">
+          <div class="card-set">Scarlet &amp; Violet</div>
+          <div class="card-name">Booster Box</div>
 
-<div class="era-block" id="mega">
-<div class="era-title">Mega Evolution</div>
-<div class="era-badge mega">2025 – danas</div>
-<div class="cards-grid">
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
-<div class="card-body">
-<div class="card-name">Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #ffcdd2, #e57373);">🎴</div>
-<div class="card-body">
-<div class="card-name">Enhanced Booster Box</div>
-<div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffd54f);">⭐</div>
-<div class="card-body">
-<div class="card-set">Mega Charizard X EX</div>
-<div class="card-name">Ultra-Premium Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ffb300);">⭐</div>
-<div class="card-body">
-<div class="card-set">Team Rocket's Moltres EX</div>
-<div class="card-name">Ultra-Premium Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎁</div>
-<div class="card-body">
-<div class="card-set">Mega Charizard</div>
-<div class="card-name">X/Y Tin</div>
-<div class="card-footer"><div class="card-price"><span>€</span>33,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
-<div class="card-body">
-<div class="card-set">Ascended Heroes</div>
-<div class="card-name">Collection</div>
-<div class="card-footer"><div class="card-price"><span>€</span>20,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ab47bc);">🎁</div>
-<div class="card-body">
-<div class="card-set">Ascended Heroes</div>
-<div class="card-name">Tech Sticker</div>
-<div class="card-footer"><div class="card-price"><span>€</span>30,00</div></div>
-</div>
-</div>
-<div class="card">
-<div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc02);">🎁</div>
-<div class="card-body">
-<div class="card-set">Pokémon Day 2026</div>
-<div class="card-name">Pokemon Day Set</div>
-<div class="card-footer"><div class="card-price"><span>€</span>25,00</div></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer>
-<strong>Safari Zone</strong><br/><br/>
-    Pokémon TCG • Hrvatska<br/>
+          <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
+        <div class="card-body">
+          
+          <div class="card-name">Booster Box</div>
+
+          <div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="grid-section" id="katalog">
+
+    <div class="era-block" id="sw-sh">
+      <div class="era-title">Sword &amp; Shield</div>
+      <div class="era-badge sw-sh">2020 – 2023</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Chilling Reign</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>420,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Evolving Skies</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>2000,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Fusion Strike</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>470,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Brilliant Stars</div>
+            <div class="card-name">Pokemon Center Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>200,00<span>/kom</span></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Lost Origin</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>580,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Lost Origin</div>
+            <div class="card-name">Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff59d);">⭐</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Charizard</div>
+            <div class="card-name">Ultra-Premium Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Silver Tempest</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>370,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⭐</div>
+          <div class="card-body">
+            <div class="card-set">Sword &amp; Shield – Celebrations</div>
+            <div class="card-name">Ultra-Premium Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>800,00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-block" id="sc-vi">
+      <div class="era-title">Scarlet &amp; Violet</div>
+      <div class="era-badge sc-vi">2023 – 2025</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Paldea Evolved</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>300,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc80);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Obsidian Flames</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>270,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🎁</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – 151</div>
+            <div class="card-name">Booster Bundle Display</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>1300,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – 151</div>
+            <div class="card-name">Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>350,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">⭐</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – 151</div>
+            <div class="card-name">Ultra-Premium Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>530,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Paradox Rift</div>
+            <div class="card-name">Elite Trainer Box Case</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #90caf9);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
+            <div class="card-name">PC ETB – Iron Leaves</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Temporal Forces</div>
+            <div class="card-name">PC ETB – Walking Wake</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Twilight Masquerade</div>
+            <div class="card-name">Pokemon Center Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
+            <div class="card-name">Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>60,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #4db6ac);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Shrouded Fable</div>
+            <div class="card-name">Pokemon Center Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>150,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffee58);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>190,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fffde7, #fff59d);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Stellar Crown</div>
+            <div class="card-name">Pokemon Center Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f06292);">🎴</div>
+          <div class="card-body">
+            <div class="card-set">Scarlet &amp; Violet – Surging Sparks</div>
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>215,00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-block" id="prismatic">
+      <div class="era-title">Prismatic Evolutions</div>
+      <div class="era-badge prismatic">2025</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ce93d8);">🎁</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Bundle</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #9fa8da);">🎁</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Bundle Display</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>900,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">📦</div>
+          <div class="card-body">
+            
+            <div class="card-name">Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>160,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #b39ddb);">📦</div>
+          <div class="card-body">
+            
+            <div class="card-name">Pokemon Center Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>400,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #fff176);">⭐</div>
+          <div class="card-body">
+            
+            <div class="card-name">Super-Premium Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #81c784);">⭐</div>
+          <div class="card-body">
+            
+            <div class="card-name">Premium Figure Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>140,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
+          <div class="card-body">
+            
+            <div class="card-name">Mini Tin Display</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>165,00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-block" id="journey">
+      <div class="era-title">Journey Together</div>
+      <div class="era-badge journey">2025</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e0f2f1, #80cbc4);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #b2ebf2, #4dd0e1);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Box Case</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>1050,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Enhanced Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>235,00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-block" id="destined">
+      <div class="era-title">Destined Rivals</div>
+      <div class="era-badge destined">2025</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffb74d);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>450,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ff9800);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Box Case</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>3000,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎁</div>
+          <div class="card-body">
+            <div class="card-set">Destined Rivals – Black Bolt</div>
+            <div class="card-name">Booster Bundle</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Destined Rivals – Black Bolt</div>
+            <div class="card-name">Elite Trainer Box Case</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>770,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #f5f5f5, #bdbdbd);">🎁</div>
+          <div class="card-body">
+            <div class="card-set">Destined Rivals – White Flare</div>
+            <div class="card-name">Booster Bundle</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>45,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fafafa, #e0e0e0);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Destined Rivals – White Flare</div>
+            <div class="card-name">Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>70,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #eceff1, #90a4ae);">📦</div>
+          <div class="card-body">
+            <div class="card-set">Destined Rivals – White Flare</div>
+            <div class="card-name">Elite Trainer Box Case</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>750,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🎁</div>
+          <div class="card-body">
+            
+            <div class="card-name">Unova Victini Illustration Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>35,00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-block" id="black-white">
+      <div class="era-title">Black &amp; White</div>
+      <div class="era-badge black-white">2025</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8eaf6, #7986cb);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>225,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #ede7f6, #9575cd);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Box Case</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>1400,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ba68c8);">📦</div>
+          <div class="card-body">
+            
+            <div class="card-name">Elite Trainer Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>75,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #e91e63);">🎁</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Bundle</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>43,00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-block" id="mega">
+      <div class="era-title">Mega Evolution</div>
+      <div class="era-badge mega">2025 – danas</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fce4ec, #ef9a9a);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>210,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #ffcdd2, #e57373);">🎴</div>
+          <div class="card-body">
+            
+            <div class="card-name">Enhanced Booster Box</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>250,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff9c4, #ffd54f);">⭐</div>
+          <div class="card-body">
+            <div class="card-set">Mega Charizard X EX</div>
+            <div class="card-name">Ultra-Premium Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>180,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #ffe0b2, #ffb300);">⭐</div>
+          <div class="card-body">
+            <div class="card-set">Team Rocket's Moltres EX</div>
+            <div class="card-name">Ultra-Premium Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>200,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9, #66bb6a);">🎁</div>
+          <div class="card-body">
+            <div class="card-set">Mega Charizard</div>
+            <div class="card-name">X/Y Tin</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>33,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd, #64b5f6);">🎁</div>
+          <div class="card-body">
+            <div class="card-set">Ascended Heroes</div>
+            <div class="card-name">Collection</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>20,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #f3e5f5, #ab47bc);">🎁</div>
+          <div class="card-body">
+            <div class="card-set">Ascended Heroes</div>
+            <div class="card-name">Tech Sticker</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>30,00</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc02);">🎁</div>
+          <div class="card-body">
+            <div class="card-set">Pokémon Day 2026</div>
+            <div class="card-name">Pokemon Day Set</div>
+
+            <div class="card-footer"><div class="card-price"><span>€</span>25,00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <strong>Safari Zone</strong><br><br>
+    Pokémon TCG • Hrvatska<br>
     Sve upite šalji putem Facebooka · safarizone.eu
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+  </script>
 </body>
 </html>
