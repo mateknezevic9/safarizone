@@ -149,7 +149,8 @@
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 1.5rem;
     }
-    .card { height: 100%; } .card {
+    .card { display: flex; flex-direction: column; }
+    .card-old { height: 100%; } .card {
       background: #1e4d35;
       border: 1px solid rgba(82,183,136,0.2);
       border-radius: 16px;
@@ -167,10 +168,10 @@
       justify-content: center;
       font-size: 4.5rem;
     }
-    .card-body { padding: 0.4rem 0.5rem 0.5rem; }
+    .card-body { display: flex; flex-direction: column; flex: 1; padding: 0.4rem 0.5rem 0.5rem; }
     .card-name { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 0.1rem; }
     .card-set { font-size: 0.85rem; font-weight: 700; color: var(--white); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.4rem; }
     .card-price { font-size: 1.3rem; font-weight: 800; color: var(--green-pale); }
     .card-price span { font-size: 0.85rem; font-weight: 600; }
     footer {
@@ -189,7 +190,7 @@
       .logo-icon { width: 52px; height: 52px; }
       .logo-icon svg { width: 52px; height: 52px; }
       .cards-grid { align-items: stretch; } .cards-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-      .card-body { padding: 0.8rem; }
+      .card-body { display: flex; flex-direction: column; flex: 1; padding: 0.8rem; }
       .card-name { font-size: 0.88rem; }
     }
     @keyframes fadeUp {
