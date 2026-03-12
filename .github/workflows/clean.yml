@@ -1,0 +1,33 @@
+name: Clean HTML
+on:
+  workflow_dispatch:
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Remove base64 images and Charizard article
+        run: |
+          python3 - <<'PYEOF'
+          import re
+          with open('index.html', 'r', encoding='utf-8') as f:
+              html = f.read()
+          orig = len(html)
+          html = re.sub(r'src="data:image/[^;]+;base64,[^"]{20,}"', 'src=""', html)
+          # Remove Charizard product card - find div containing charizard and remove it
+          html = re.sub(r'<div[^>]*class="[^"]*card[^"]*"[^>]*>(?:(?!<div).|
+)*?[Cc]harizard(?:(?!<div).|
+)*?</div>', '', html, flags=re.DOTALL)
+          with open('index.html', 'w', encoding='utf-8') as f:
+              f.write(html)
+          print(f"Done. {orig} -> {len(html)} bytes")
+          PYEOF
+      - name: Commit
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add index.html
+          git commit -m "Remove base64 images and Charizard article" || echo "No changes"
+          git push
